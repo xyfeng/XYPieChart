@@ -1,374 +1,0 @@
-TXYPieChart
-v4
-r1
-cCheck dependencies
-cCpResource /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/ResourceRules.plist build/Debug-iphoneos/XYPieChart.app/ResourceRules.plist
-cProcessInfoPlistFile /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/Info.plist XYPieChart/XYPieChart-Info.plist
-cProcessPCH /var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch.pth XYPieChart/XYPieChart-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/main.o /Users/fxy/Desktop/XYPieChart/XYPieChart/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/AppDelegate.o /Users/fxy/Desktop/XYPieChart/XYPieChart/AppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/ViewController.o /Users/fxy/Desktop/XYPieChart/XYPieChart/ViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/XYPieChart.o /Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cLd /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/XYPieChart normal armv7
-cGenerateDSYMFile /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app.dSYM /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/XYPieChart
-cCopyStringsFile /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/en.lproj/InfoPlist.strings XYPieChart/en.lproj/InfoPlist.strings
-cCompileXIB /Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/ViewController.xib
-cCopyPNGFile /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/icon.png icon.png
-cProcessProductPackaging "/Users/fxy/Library/MobileDevice/Provisioning Profiles/A8039FDD-876E-4499-8632-16CE26AAC5D1.mobileprovision" /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/embedded.mobileprovision
-cProcessProductPackaging "/Users/fxy/Library/MobileDevice/Provisioning Profiles/A8039FDD-876E-4499-8632-16CE26AAC5D1.mobileprovision" /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/embedded.mobileprovision
-cTouch /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app
-cProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/Entitlements.plist /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart.xcent
-cCodeSign /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk
-c000000004E7840290000000000000110
-t1316503593
-s272
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/Entitlements.plist
-c000000004E5C595800000000000001A7
-t1314675032
-s423
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/ResourceRules.plist
-c000000004E5C595800000000000001E5
-t1314675032
-s485
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004E72F28700000000003AB0A0
-t1316156039
-s3846304
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004E72F3440000000000529540
-t1316156228
-s5412160
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
-c000000004E72F8910000000000173260
-t1316157585
-s1520224
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004E7808C7000000000078BE50
-t1316489415
-s7913040
-
-N/Users/fxy/Desktop/XYPieChart/XYPieChart/AppDelegate.h
-c000000004F4816B1000000000000016D
-t1330124465
-s365
-
-N/Users/fxy/Desktop/XYPieChart/XYPieChart/AppDelegate.m
-c000000004F51B8760000000000000994
-t1330755702
-s2452
-
-N/Users/fxy/Desktop/XYPieChart/XYPieChart/ViewController.h
-c000000004F559CEB0000000000000358
-t1331010795
-s856
-
-N/Users/fxy/Desktop/XYPieChart/XYPieChart/ViewController.m
-c000000004F55A0B00000000000001901
-t1331011760
-s6401
-
-N/Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart-Prefix.pch
-c000000004F4816B10000000000000143
-t1330124465
-s323
-
-N/Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart.h
-c000000004F543FE100000000000006A2
-t1330921441
-s1698
-
-N/Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart.m
-c000000004F557B970000000000005A25
-t1331002263
-s23077
-
-N/Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/InfoPlist.strings
-c000000004F4816B1000000000000002D
-t1330124465
-s45
-
-N/Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/ViewController.xib
-c000000004F561F26000000000000AC7E
-t1331044134
-s44158
-
-N/Users/fxy/Desktop/XYPieChart/XYPieChart/main.m
-c000000004F55906E0000000000000151
-t1331007598
-s337
-
-N/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app
-t1330923620
-s340
-
-N/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app.dSYM
-t1330923619
-s102
-
-N/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/Info.plist
-t1330812139
-s1186
-
-N/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/PkgInfo
-t1330812139
-s8
-
-N/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/ResourceRules.plist
-t1330812139
-s485
-
-N/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/XYPieChart
-t1330923620
-s81408
-
-N/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/embedded.mobileprovision
-t1330812142
-s7670
-
-N/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/en.lproj/InfoPlist.strings
-t1330812140
-s42
-
-N/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/en.lproj/ViewController.nib
-t1330923619
-s4170
-
-N/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/icon.png
-t1330812141
-s4706
-
-N/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/AppDelegate.o
-t1330923619
-s51740
-
-N/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/ViewController.o
-t1330923619
-s63468
-
-N/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/XYPieChart.LinkFileList
-c000000004F5294EB00000000000001DB
-t1330812139
-s475
-
-N/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/XYPieChart.o
-t1330923619
-s117980
-
-N/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/main.o
-t1330812140
-s2784
-
-N/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart.xcent
-t1330812142
-s446
-
-N/Users/fxy/Desktop/XYPieChart/icon.png
-c000000004F519AD8000000000000100B
-t1330748120
-s4107
-
-N/Users/fxy/Library/MobileDevice/Provisioning Profiles/A8039FDD-876E-4499-8632-16CE26AAC5D1.mobileprovision
-c000000004EF3D3E30000000000001DF6
-t1324602339
-s7670
-
-N/var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch.pth
-t1330812140
-s3855976
-
-NXYPieChart/XYPieChart-Info.plist
-c000000004F5289ED00000000000005C4
-t1330809325
-s1476
-
-CBuild AST from /Users/fxy/Desktop/XYPieChart/XYPieChart/AppDelegate.m
-r0
-
-CBuild AST from /Users/fxy/Desktop/XYPieChart/XYPieChart/ViewController.m
-r0
-
-CBuild AST from /Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart.m
-r0
-
-CBuild AST from /Users/fxy/Desktop/XYPieChart/XYPieChart/main.m
-r0
-
-CCheck dependencies
-r0
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies90664cac5606b541^7a6d5eac5606b541^---0#1#0#--18"Check dependencies36"76A236CD-9842-4D2E-B8E4-01F96B9F0EF2-
-
-CCodeSign /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app
-s352736941.691221
-e352736942.087796
-r1
-xCodeSign
-x/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"CodeSign build/Debug-iphoneos/XYPieChart.appfa0bb1ad5606b541^2b8716ae5606b541^---0#0#0#-19%DVTDocumentLocation2@82"file://localhost/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/0000000000000000^680"CodeSign build/Debug-iphoneos/XYPieChart.app    cd /Users/fxy/Desktop/XYPieChart    setenv CODESIGN_ALLOCATE /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/codesign --force --sign "iPhone Developer: xiaoyang feng (47ZEY3SSAY)" --resource-rules=/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/ResourceRules.plist --entitlements /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart.xcent /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app36"6762083E-21E4-4343-9BEC-800273AA3D61-
-
-CCompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/AppDelegate.o /Users/fxy/Desktop/XYPieChart/XYPieChart/AppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s352736940.391523
-e352736940.712020
-r1
-xCompileC
-xbuild/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/AppDelegate.o
-x/Users/fxy/Desktop/XYPieChart/XYPieChart/AppDelegate.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"Compile /Users/fxy/Desktop/XYPieChart/XYPieChart/AppDelegate.m65aa64ac5606b541^06f2b8ac5606b541^---0#0#0#-19%DVTDocumentLocation2@70"file://localhost/Users/fxy/Desktop/XYPieChart/XYPieChart/AppDelegate.m0000000000000000^2427"CompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/AppDelegate.o XYPieChart/AppDelegate.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/fxy/Desktop/XYPieChart    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk -gdwarf-2 -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.0 -iquote /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-generated-files.hmap -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-own-target-headers.hmap -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-all-target-headers.hmap -iquote /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-project-headers.hmap -I/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/include -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/DerivedSources/armv7 -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/DerivedSources -F/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos -include /var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch -MMD -MT dependencies -MF /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/AppDelegate.d -c /Users/fxy/Desktop/XYPieChart/XYPieChart/AppDelegate.m -o /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/AppDelegate.o36"E748B9F4-D0B3-40A3-ABF4-3FED5B8E6283-
-
-CCompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/ViewController.o /Users/fxy/Desktop/XYPieChart/XYPieChart/ViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s352736940.701901
-e352736940.885983
-r1
-xCompileC
-xbuild/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/ViewController.o
-x/Users/fxy/Desktop/XYPieChart/XYPieChart/ViewController.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"Compile /Users/fxy/Desktop/XYPieChart/XYPieChart/ViewController.m85d2b3ac5606b541^9ce1e2ac5606b541^---0#0#0#-19%DVTDocumentLocation2@73"file://localhost/Users/fxy/Desktop/XYPieChart/XYPieChart/ViewController.m0000000000000000^2442"CompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/ViewController.o XYPieChart/ViewController.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/fxy/Desktop/XYPieChart    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk -gdwarf-2 -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.0 -iquote /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-generated-files.hmap -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-own-target-headers.hmap -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-all-target-headers.hmap -iquote /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-project-headers.hmap -I/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/include -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/DerivedSources/armv7 -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/DerivedSources -F/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos -include /var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch -MMD -MT dependencies -MF /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/ViewController.d -c /Users/fxy/Desktop/XYPieChart/XYPieChart/ViewController.m -o /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/ViewController.o36"2AC8BE04-F355-47B9-BF31-D700AEAD776A-
-
-CCompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/XYPieChart.o /Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s352736940.713335
-e352736941.017351
-r1
-xCompileC
-xbuild/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/XYPieChart.o
-x/Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection61"Compile /Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart.m51bcb6ac5606b541^cd7704ad5606b541^---0#0#0#-19%DVTDocumentLocation2@69"file://localhost/Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart.m0000000000000000^2422"CompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/XYPieChart.o XYPieChart/XYPieChart.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/fxy/Desktop/XYPieChart    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk -gdwarf-2 -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.0 -iquote /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-generated-files.hmap -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-own-target-headers.hmap -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-all-target-headers.hmap -iquote /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-project-headers.hmap -I/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/include -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/DerivedSources/armv7 -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/DerivedSources -F/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos -include /var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch -MMD -MT dependencies -MF /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/XYPieChart.d -c /Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart.m -o /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/XYPieChart.o36"4485E8D5-2087-41D7-96B4-A0EF3F242A02-
-
-CCompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/main.o /Users/fxy/Desktop/XYPieChart/XYPieChart/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s352736940.391503
-e352736940.700652
-r1
-xCompileC
-xbuild/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/main.o
-x/Users/fxy/Desktop/XYPieChart/XYPieChart/main.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection55"Compile /Users/fxy/Desktop/XYPieChart/XYPieChart/main.mcd9264ac5606b541^4c6fb3ac5606b541^---0#0#0#-19%DVTDocumentLocation2@63"file://localhost/Users/fxy/Desktop/XYPieChart/XYPieChart/main.m0000000000000000^2392"CompileC build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/main.o XYPieChart/main.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/fxy/Desktop/XYPieChart    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/clang -x objective-c -arch armv7 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk -gdwarf-2 -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.0 -iquote /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-generated-files.hmap -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-own-target-headers.hmap -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-all-target-headers.hmap -iquote /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-project-headers.hmap -I/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/include -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/DerivedSources/armv7 -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/DerivedSources -F/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos -include /var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch -MMD -MT dependencies -MF /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/main.d -c /Users/fxy/Desktop/XYPieChart/XYPieChart/main.m -o /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/main.o36"EA8961ED-A2B2-49F4-B2EE-813A5BEC1A42-
-
-CCompileXIB /Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/ViewController.xib
-s352736941.178808
-e352736941.631189
-r1
-xCompileXIB
-x/Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/ViewController.xib
-o/* com.apple.ibtool.document.warnings */
-o/Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/ViewController.xib:62: warning: Tint color on non-bar style segmented control [9]
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection78"Compiling /Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/ViewController.xibb5dc2dad5606b541^8ab0a1ad5606b541^-173"/* com.apple.ibtool.document.warnings *//Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/ViewController.xib:62: warning: Tint color on non-bar style segmented control [9]1(21%IDEActivityLogMessage2@45"Tint color on non-bar style segmented control-352736941#18446744073709551615#0#-1#-23%DVTTextDocumentLocation3@84"file://localhost/Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/ViewController.xib0000000000000000^61#18446744073709551615#61#18446744073709551615#18446744073709551615#0#25"Unsupported Configuration--0#0#0#-19%DVTDocumentLocation4@84"file://localhost/Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/ViewController.xib0000000000000000^663"CompileXIB XYPieChart/en.lproj/ViewController.xib    cd /Users/fxy/Desktop/XYPieChart    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 5.0    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv XCODE_DEVELOPER_USR_PATH /Developer/usr/bin/..    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/en.lproj/ViewController.nib /Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/ViewController.xib --sdk /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk36"5A0C8256-4F02-4E91-8DB2-7CAF728AF2A5-
-
-CCopyPNGFile /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/icon.png icon.png
-s352504940.880049
-e352504941.096979
-r1
-xCopyPNGFile
-x/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/icon.png
-xicon.png
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection65"CopyPNGFile build/Debug-iphoneos/XYPieChart.app/icon.png icon.pngc361e16ccc02b541^67d4186dcc02b541^---0#0#0#-19%DVTDocumentLocation2@54"file://localhost/Users/fxy/Desktop/XYPieChart/icon.png0000000000000000^563"CopyPNGFile build/Debug-iphoneos/XYPieChart.app/icon.png icon.png    cd /Users/fxy/Desktop/XYPieChart    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/PrivatePlugIns/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/fxy/Desktop/XYPieChart/icon.png /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/icon.png36"7460DB21-E170-43B0-BF1F-55FE7421D5F8-
-
-CCopyStringsFile /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/en.lproj/InfoPlist.strings XYPieChart/en.lproj/InfoPlist.strings
-s352504940.875289
-e352504940.878780
-r1
-xCopyStringsFile
-x/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/en.lproj/InfoPlist.strings
-xXYPieChart/en.lproj/InfoPlist.strings
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection42"Copy XYPieChart/en.lproj/InfoPlist.strings992ae06ccc02b541^9300e16ccc02b541^---0#0#0#-19%DVTDocumentLocation2@83"file://localhost/Users/fxy/Desktop/XYPieChart/XYPieChart/en.lproj/InfoPlist.strings0000000000000000^543"CopyStringsFile build/Debug-iphoneos/XYPieChart.app/en.lproj/InfoPlist.strings XYPieChart/en.lproj/InfoPlist.strings    cd /Users/fxy/Desktop/XYPieChart    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/en.lproj -- XYPieChart/en.lproj/InfoPlist.strings36"98C6DD8C-AF39-4A85-838C-C5F411B3C4AB-
-
-CCpResource /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/ResourceRules.plist build/Debug-iphoneos/XYPieChart.app/ResourceRules.plist
-s352504939.942675
-e352504939.945268
-r1
-xCpResource
-x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/ResourceRules.plist
-xbuild/Debug-iphoneos/XYPieChart.app/ResourceRules.plist
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Copy build/Debug-iphoneos/XYPieChart.app/ResourceRules.plist766bf16bcc02b541^3f91f36bcc02b541^---0#0#0#-19%DVTDocumentLocation2@101"file://localhost/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/ResourceRules.plist00f4a8f3dcffdf42^645"CpResource /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/ResourceRules.plist build/Debug-iphoneos/XYPieChart.app/ResourceRules.plist    cd /Users/fxy/Desktop/XYPieChart    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/ResourceRules.plist /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app36"E5A7D8DF-D823-42EC-AD46-73CF2607633C-
-
-CGenerateDSYMFile /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app.dSYM /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/XYPieChart
-s352736941.123637
-e352736941.169415
-r1
-xGenerateDSYMFile
-x/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app.dSYM
-x/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/XYPieChart
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Generating /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app.dSYMbaba1fad5606b541^815f2bad5606b541^---0#0#0#-19%DVTDocumentLocation2@87"file://localhost/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app.dSYM/0000000000000000^449"GenerateDSYMFile build/Debug-iphoneos/XYPieChart.app.dSYM build/Debug-iphoneos/XYPieChart.app/XYPieChart    cd /Users/fxy/Desktop/XYPieChart    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/XYPieChart -o /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app.dSYM36"82B056DA-A906-464B-9F53-942DD58794A1-
-
-CLd /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/XYPieChart normal armv7
-s352736941.025005
-e352736941.115901
-r1
-xLd
-x/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/XYPieChart
-xnormal
-xarmv7
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Link /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/XYPieChart5f9a06ad5606b541^69ac1dad5606b541^---0#0#0#--886"Ld build/Debug-iphoneos/XYPieChart.app/XYPieChart normal armv7    cd /Users/fxy/Desktop/XYPieChart    setenv IPHONEOS_DEPLOYMENT_TARGET 5.0    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/clang -arch armv7 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk -L/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos -F/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos -filelist /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/Objects-normal/armv7/XYPieChart.LinkFileList -dead_strip -fobjc-arc -miphoneos-version-min=5.0 -framework QuartzCore -framework UIKit -framework Foundation -framework CoreGraphics -o /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/XYPieChart36"4C88FCE5-E9DE-4B36-B78C-4F31E6C40D1B-
-
-CProcessInfoPlistFile /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/Info.plist XYPieChart/XYPieChart-Info.plist
-s352504939.943287
-e352504939.948520
-r1
-xProcessInfoPlistFile
-x/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/Info.plist
-xXYPieChart/XYPieChart-Info.plist
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection40"Process XYPieChart/XYPieChart-Info.plist978ef16bcc02b541^a299f36bcc02b541^---0#0#0#-19%DVTDocumentLocation2@78"file://localhost/Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart-Info.plist0000000000000000^709"ProcessInfoPlistFile build/Debug-iphoneos/XYPieChart.app/Info.plist XYPieChart/XYPieChart-Info.plist    cd /Users/fxy/Desktop/XYPieChart    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"    builtin-infoPlistUtility XYPieChart/XYPieChart-Info.plist -genpkginfo /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/ResourceRules.plist -o /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/Info.plist36"888731A4-DE60-43F7-8755-C416CA700E8C-
-
-CProcessPCH /Users/fxy/Library/Developer/Xcode/DerivedData/XYPieChart-bbdtrpsivcqqcnbldzhzticmksjh/Index/PrecompiledHeaders/XYPieChart-Prefix-asrrorfscyawdzcjigimxiusljol_ast/XYPieChart-Prefix.pch.pth XYPieChart/XYPieChart-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.astbuilder
-r0
-
-CProcessPCH /var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch.pth XYPieChart/XYPieChart-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s352504939.957182
-e352504940.349498
-r1
-xProcessPCH
-x/var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch.pth
-xXYPieChart/XYPieChart-Prefix.pch
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection43"Precompile XYPieChart/XYPieChart-Prefix.pch7c2cf56bcc02b541^0c78596ccc02b541^---0#0#0#-19%DVTDocumentLocation2@78"file://localhost/Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart-Prefix.pch0000000000000000^2508"ProcessPCH /var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch.pth XYPieChart/XYPieChart-Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/fxy/Desktop/XYPieChart    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/clang -x objective-c-header -arch armv7 -fmessage-length=0 -fdiagnostics-print-source-range-info -fdiagnostics-show-category=id -fdiagnostics-parseable-fixits -std=gnu99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wparentheses -Wswitch -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-shorten-64-to-32 -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk -gdwarf-2 -Wno-sign-conversion -mthumb "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -miphoneos-version-min=5.0 -iquote /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-generated-files.hmap -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-own-target-headers.hmap -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-all-target-headers.hmap -iquote /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart-project-headers.hmap -I/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/include -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/DerivedSources/armv7 -I/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/DerivedSources -F/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos -c /Users/fxy/Desktop/XYPieChart/XYPieChart/XYPieChart-Prefix.pch -o /var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/dr/ds1d4n8j6_s80cxvrs4c7lg80000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/XYPieChart-Prefix-aosymohlraddomdoaopjlpdcvmai/XYPieChart-Prefix.pch.d36"D8045363-ED54-439B-9B84-2E6FA7185073-
-
-CProcessProductPackaging "/Users/fxy/Library/MobileDevice/Provisioning Profiles/A8039FDD-876E-4499-8632-16CE26AAC5D1.mobileprovision" /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/embedded.mobileprovision
-s352504942.406834
-e352504942.411001
-r1
-xProcessProductPackaging
-x/Users/fxy/Library/MobileDevice/Provisioning Profiles/A8039FDD-876E-4499-8632-16CE26AAC5D1.mobileprovision
-x/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/embedded.mobileprovision
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection193"ProcessProductPackaging "/Users/fxy/Library/MobileDevice/Provisioning Profiles/A8039FDD-876E-4499-8632-16CE26AAC5D1.mobileprovision" build/Debug-iphoneos/XYPieChart.app/embedded.mobileprovision7043686ecc02b541^f147696ecc02b541^---0#0#0#-19%DVTDocumentLocation2@106"file://localhost/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/embedded.mobileprovision0000000000000000^653"ProcessProductPackaging "/Users/fxy/Library/MobileDevice/Provisioning Profiles/A8039FDD-876E-4499-8632-16CE26AAC5D1.mobileprovision" build/Debug-iphoneos/XYPieChart.app/embedded.mobileprovision    cd /Users/fxy/Desktop/XYPieChart    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"    builtin-productPackagingUtility "/Users/fxy/Library/MobileDevice/Provisioning Profiles/A8039FDD-876E-4499-8632-16CE26AAC5D1.mobileprovision" -o /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app/embedded.mobileprovision36"511C63D6-EECC-4495-AA57-AEE368E8DF9E-
-
-CProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/Entitlements.plist /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart.xcent
-s352504942.451907
-e352504942.457591
-r1
-xProcessProductPackaging
-x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/Entitlements.plist
-x/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart.xcent
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection184"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/Entitlements.plist build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart.xcentb0c8736ecc02b541^df34756ecc02b541^---0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart.xcent00f4a8f3dcffdf42^661"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/Entitlements.plist build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart.xcent    cd /Users/fxy/Desktop/XYPieChart    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"    builtin-productPackagingUtility /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/Entitlements.plist -entitlements -format xml -o /Users/fxy/Desktop/XYPieChart/build/XYPieChart.build/Debug-iphoneos/XYPieChart.build/XYPieChart.xcent36"A97D1E29-6EE7-48A1-8E4F-C32227ADC51D-
-
-CTouch /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app
-s352736941.657542
-e352736941.673717
-r1
-xTouch
-x/Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app
-lSLF04#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Touch /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.appae67a8ad5606b541^2383acad5606b541^---0#0#0#--291"Touch build/Debug-iphoneos/XYPieChart.app    cd /Users/fxy/Desktop/XYPieChart    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/fxy/Desktop/XYPieChart/build/Debug-iphoneos/XYPieChart.app36"3FF89B2A-20C0-44D6-884C-115E1C6EA94C-
-
