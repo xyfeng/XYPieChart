@@ -1,0 +1,67 @@
+<h2>XYPieChart</h2>
+
+XYPieChart is an simple and easy-to-use pie chart for iOS app. It started from a <a title="Potion Design" href="http://www.potiondesign.com" target="_blank">Potion</a> Project which needs an animated pie graph without interaction. All animation was implemented in the drawRect: method. After played with <a title="BTSPieChart" href="https://github.com/briancoyner/BTSPieChart" target="_blank">BTSPieChart</a>, really like its code structure, it's clean, has well named functions, structure like a UITableView. XYPieChart rewrote the code, based on CALayers for the animation. Compared to BTSPieChart, XYPieChart is a prettier version, it has a simpler insert/delete slices algorithm, different design of slice selection, more flexible to customize.
+<p style="text-align: center;"><a href="http://blog.xystudio.cc/wp-content/uploads/2012/03/XYPieChart_Screenshot_1.png"><img class="aligncenter  wp-image-187" title="XYPieChart_Screenshot_1" src="http://blog.xystudio.cc/wp-content/uploads/2012/03/XYPieChart_Screenshot_1.png" alt="" width="554" height="266" /></a></p>
+
+<h2>Features</h2>
+<ul>
+	<li>Customized color for slices (default color supported)</li>
+	<li>animated insert/delete slice(s)</li>
+	<li>slice selection animation</li>
+	<li>text label option of showing percentage or actual value</li>
+	<li>text label auto-hide when slice is too small</li>
+	<li>customizable text label font and relative postion</li>
+	<li>pie opening/closing animation</li>
+	<li>pie starting angle support</li>
+	<li>ARC(Automatic Reference Counting) support</li>
+	<li>interface builder support</li>
+</ul>
+<h2>Installation</h2>
+<ul>
+	<li>Drag the XYPieChart/XYPieChart folder into your project.</li>
+	<li>Add the <strong>QuartzCore</strong> framework to your project.</li>
+</ul>
+<h2>Usage</h2>
+(see sample Xcode project in /Demo)
+
+Set PieChart properties:
+
+<code>[self.pieChart setDelegate:self];
+[self.pieChart setDataSource:self];
+[self.pieChart setStartPieAngle:M_PI_2]; //optional
+[self.pieChart setAnimationSpeed:1.0]; //optional
+[self.pieChart setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]]; //optional
+[self.pieChart setLabelRadius:160]; //optional
+[self.pieChart setShowPercentage:YES]; //optional
+[self.pieChart setPieBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1]]; //optional
+[self.pieChart setPieCenter:CGPointMake(240, 240)]; //optional</code>
+
+Implement Data Source Methods:
+
+<code>- (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
+{
+return self.slices.count;
+}</code>
+
+<code>- (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
+{
+return [[self.slices objectAtIndex:index] intValue];
+}</code>
+
+<code>- (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
+{   //optional
+if(pieChart == self.pieChartRight) return nil;
+return [self.sliceColors objectAtIndex:(index % self.sliceColors.count)];
+}</code>
+
+Implement  Delegate Methods:
+
+<code>- (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index
+{
+NSLog(@"did select slice at index %d",index);
+self.selectedSliceLabel.text = [NSString stringWithFormat:@"$%@",[self.slices objectAtIndex:index]];
+}</code>
+<h2>Video Demo</h2>
+<iframe src="http://player.vimeo.com/video/38069395" frameborder="0" width="600" height="466"></iframe>
+<h2>Credits</h2>
+XYPieChart is brought to you by <a title="XYStudio" href="http://xystudio.cc/">XY Feng</a>
