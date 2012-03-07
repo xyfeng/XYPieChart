@@ -49,6 +49,7 @@ Implement Data Source Methods:
 </pre>
 
 Implement  Delegate Methods (OPTIONAL):
+
 <pre>
 - (void)pieChart:(XYPieChart *)pieChart willSelectSliceAtIndex:(NSUInteger)index;
 - (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index;
