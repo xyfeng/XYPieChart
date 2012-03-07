@@ -1,0 +1,65 @@
+h1. XYPieChart
+
+XYPieChart is an simple and easy-to-use pie chart for iOS app. It started from a Potion:http://www.potiondesign.com Project which needs an animated pie graph without interaction. All animation was implemented in the drawRect: method. After played with BTSPieChart:https://github.com/briancoyner/BTSPieChart, really like its code structure, it's clean, has well named functions, structure like a UITableView. XYPieChart rewrote the code, based on CALayers for the animation. Compared to BTSPieChart, XYPieChart is a prettier version, it has a simpler insert/delete slices algorithm, different design of slice selection, more flexible to customize.
+
+!http://blog.xystudio.cc/wp-content/uploads/2012/03/XYPieChart_Screenshot_11.png!
+
+h2. Features
+
+* Customized color for slices (default color supported)
+* animated insert/delete slice(s)
+* slice selection animation
+* text label option of showing percentage or actual value
+* text label auto-hide when slice is too small
+* customizable text label font and relative postion
+* pie opening/closing animation
+* pie starting angle support
+* ARC(Automatic Reference Counting) support
+* interface builder support
+
+h2. Installation
+
+* Drag the @XYPieChart/XYPieChart@ folder into your project. 
+* Add the *QuartzCore* framework to your project. 
+
+h2. Usage
+
+(see sample Xcode project in @/Demo@)
+
+Set PieChart properties:
+
+<pre>
+[self.pieChart setDelegate:self];
+[self.pieChart setDataSource:self];
+[self.pieChart setStartPieAngle:M_PI_2];	//optional
+[self.pieChart setAnimationSpeed:1.0];	//optional
+[self.pieChart setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];	//optional
+[self.pieChart setLabelRadius:160];	//optional
+[self.pieChart setShowPercentage:YES];	//optional
+[self.pieChart setPieBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1]];	//optional
+[self.pieChart setPieCenter:CGPointMake(240, 240)];	//optional
+</pre>
+
+Implement Data Source Methods:
+
+<pre>
+- (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart;
+- (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index;
+- (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index;	//optional
+</pre>
+
+Implement  Delegate Methods (OPTIONAL):
+<pre>
+- (void)pieChart:(XYPieChart *)pieChart willSelectSliceAtIndex:(NSUInteger)index;
+- (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index;
+- (void)pieChart:(XYPieChart *)pieChart willDeselectSliceAtIndex:(NSUInteger)index;
+- (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index;
+</pre>
+
+h2. Video Demo
+
+"Demo Link":http://vimeo.com/38069395
+
+h2. Credits
+
+XYPieChart is brought to you by "XY Feng":http://xystudio.cc
