@@ -400,8 +400,8 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
                 }
             }
             
-            layer.percentage = (angle/2)/M_PI;
             layer.value = values[index];
+            layer.percentage = (sum)?layer.value/sum:0;
             UIColor *color = nil;
             if([_dataSource respondsToSelector:@selector(pieChart:colorForSliceAtIndex:)])
             {
