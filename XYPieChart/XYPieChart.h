@@ -29,19 +29,15 @@
 #import <UIKit/UIKit.h>
 
 @class XYPieChart;
-
-#pragma mark - Data Source Protocol
-//Provide value and color for each slice
 @protocol XYPieChartDataSource <NSObject>
 @required
 - (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart;
 - (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index;
 @optional
 - (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index;
+- (NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index;
 @end
 
-#pragma mark - Delegate Protocol
-//Method called before and after one slice get selected
 @protocol XYPieChartDelegate <NSObject>
 @optional
 - (void)pieChart:(XYPieChart *)pieChart willSelectSliceAtIndex:(NSUInteger)index;
@@ -50,7 +46,6 @@
 - (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index;
 @end
 
-#pragma mark - Pie Chart 
 @interface XYPieChart : UIView
 @property(nonatomic, weak) id<XYPieChartDataSource> dataSource;
 @property(nonatomic, weak) id<XYPieChartDelegate> delegate;

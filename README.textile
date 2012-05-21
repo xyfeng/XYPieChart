@@ -46,6 +46,7 @@ Implement Data Source Methods:
 - (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart;
 - (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index;
 - (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index;	//optional
+- (NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index;	//optional
 </pre>
 
 Implement  Delegate Methods (OPTIONAL):
