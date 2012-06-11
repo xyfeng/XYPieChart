@@ -334,7 +334,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         
         BOOL isOnStart = ([slicelayers count] == 0 && sliceCount);
         NSInteger diff = sliceCount - [slicelayers count];
-        layersToRemove = [NSMutableArray arrayWithArray:slicelayers];
+        layersToRemove = [[NSMutableArray alloc] initWithArray:slicelayers];
         
         BOOL isOnEnd = ([slicelayers count] && (sliceCount == 0 || sum <= 0));
         if(isOnEnd)
