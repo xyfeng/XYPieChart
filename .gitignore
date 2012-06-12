@@ -1,0 +1,9 @@
+xcuserdata/
+# build products
+*.build/
+build/
+DerivedData/
+Demo/XYPieChart.xcodeproj/
+# Misc
+.svn
+.DS_Store
