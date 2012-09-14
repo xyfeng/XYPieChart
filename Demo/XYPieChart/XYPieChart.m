@@ -611,6 +611,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     [pieLayer setZPosition:0];
     [pieLayer setStrokeColor:NULL];
     CATextLayer *textLayer = [CATextLayer layer];
+    textLayer.contentsScale = [[UIScreen mainScreen] scale];
     CGFontRef font = CGFontCreateWithFontName((__bridge CFStringRef)[self.labelFont fontName]);
     [textLayer setFont:font];
     CFRelease(font);
