@@ -34,6 +34,8 @@ Set PieChart properties:
 [self.pieChart setStartPieAngle:M_PI_2];	//optional
 [self.pieChart setAnimationSpeed:1.0];	//optional
 [self.pieChart setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];	//optional
+[self.pieChart setLabelColor:[UIColor blackColor]];	//optional, defaults to white
+[self.pieChart setLabelShadowColor:[UIColor blackColor]];	//optional, defaults to none (nil)
 [self.pieChart setLabelRadius:160];	//optional
 [self.pieChart setShowPercentage:YES];	//optional
 [self.pieChart setPieBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1]];	//optional
