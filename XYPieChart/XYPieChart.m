@@ -211,7 +211,8 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 - (void)setPieRadius:(CGFloat)pieRadius
 {
     _pieRadius = pieRadius;
-    CGRect frame = CGRectMake(_pieCenter.x-pieRadius, _pieCenter.y-pieRadius, pieRadius*2, pieRadius*2);
+    CGPoint origin = _pieView.frame.origin;
+    CGRect frame = CGRectMake(origin.x+_pieCenter.x-pieRadius, origin.y+_pieCenter.y-pieRadius, pieRadius*2, pieRadius*2);
     _pieCenter = CGPointMake(frame.size.width/2, frame.size.height/2);
     [_pieView setFrame:frame];
     [_pieView.layer setCornerRadius:_pieRadius];
