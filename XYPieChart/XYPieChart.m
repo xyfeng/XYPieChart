@@ -113,6 +113,8 @@ static NSUInteger kDefaultSliceZOrder = 100;
 @synthesize pieRadius = _pieRadius;
 @synthesize showLabel = _showLabel;
 @synthesize labelFont = _labelFont;
+@synthesize labelColor = _labelColor;
+@synthesize labelShadowColor = _labelShadowColor;
 @synthesize labelRadius = _labelRadius;
 @synthesize selectedSliceStroke = _selectedSliceStroke;
 @synthesize selectedSliceOffsetRadius = _selectedSliceOffsetRadius;
@@ -149,6 +151,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         self.pieRadius = MIN(frame.size.width/2, frame.size.height/2) - 10;
         self.pieCenter = CGPointMake(frame.size.width/2, frame.size.height/2);
         self.labelFont = [UIFont boldSystemFontOfSize:MAX((int)self.pieRadius/10, 5)];
+        _labelColor = [UIColor whiteColor];
         _labelRadius = _pieRadius/2;
         _selectedSliceOffsetRadius = MAX(10, _pieRadius/10);
         
@@ -189,6 +192,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         self.pieRadius = MIN(bounds.size.width/2, bounds.size.height/2) - 10;
         self.pieCenter = CGPointMake(bounds.size.width/2, bounds.size.height/2);
         self.labelFont = [UIFont boldSystemFontOfSize:MAX((int)self.pieRadius/10, 5)];
+        _labelColor = [UIColor whiteColor];
         _labelRadius = _pieRadius/2;
         _selectedSliceOffsetRadius = MAX(10, _pieRadius/10);
         
@@ -591,7 +595,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     {
         SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:newSelection];
         if(_selectedSliceOffsetRadius > 0 && layer){
-            
+
             if (layer.isSelected) {
                 if ([_delegate respondsToSelector:@selector(pieChart:willDeselectSliceAtIndex:)])
                     [_delegate pieChart:self willDeselectSliceAtIndex:newSelection];
@@ -618,6 +622,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     [pieLayer setZPosition:0];
     [pieLayer setStrokeColor:NULL];
     CATextLayer *textLayer = [CATextLayer layer];
+    textLayer.contentsScale = [[UIScreen mainScreen] scale];
     CGFontRef font = CGFontCreateWithFontName((__bridge CFStringRef)[self.labelFont fontName]);
     [textLayer setFont:font];
     CFRelease(font);
@@ -625,6 +630,13 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     [textLayer setAnchorPoint:CGPointMake(0.5, 0.5)];
     [textLayer setAlignmentMode:kCAAlignmentCenter];
     [textLayer setBackgroundColor:[UIColor clearColor].CGColor];
+    [textLayer setForegroundColor:self.labelColor.CGColor];
+    if (self.labelShadowColor) {
+        [textLayer setShadowColor:self.labelShadowColor.CGColor];
+        [textLayer setShadowOffset:CGSizeZero];
+        [textLayer setShadowOpacity:1.0f];
+        [textLayer setShadowRadius:2.0f];
+    }
     CGSize size = [@"0" sizeWithFont:self.labelFont];
     [CATransaction setDisableActions:YES];
     [textLayer setFrame:CGRectMake(0, 0, size.width, size.height)];

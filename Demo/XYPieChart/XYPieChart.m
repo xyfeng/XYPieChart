@@ -35,10 +35,12 @@
 @property (nonatomic, assign) double    startAngle;
 @property (nonatomic, assign) double    endAngle;
 @property (nonatomic, assign) BOOL      isSelected;
+@property (nonatomic, strong) NSString  *text;
 - (void)createArcAnimationForKey:(NSString *)key fromValue:(NSNumber *)from toValue:(NSNumber *)to Delegate:(id)delegate;
 @end
 
 @implementation SliceLayer
+@synthesize text = _text;
 @synthesize value = _value;
 @synthesize percentage = _percentage;
 @synthesize startAngle = _startAngle;
@@ -161,7 +163,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (id)initWithFrame:(CGRect)frame Center:(CGPoint)center Radius:(CGFloat)radius
 {
-    self = [super initWithFrame:frame];
+    self = [self initWithFrame:frame];
     if (self)
     {
         self.pieCenter = center;
@@ -234,7 +236,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         if(_showPercentage)
             label = [NSString stringWithFormat:@"%0.0f", layer.percentage*100];
         else
-            label = [NSString stringWithFormat:@"%0.0f", layer.value];
+            label = (layer.text)?layer.text:[NSString stringWithFormat:@"%0.0f", layer.value];
         CGSize size = [label sizeWithFont:self.labelFont];
         
         if(M_PI*2*_labelRadius*layer.percentage < MAX(size.width,size.height))
@@ -418,6 +420,11 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             }
             
             [layer setFillColor:color.CGColor];
+            if([_dataSource respondsToSelector:@selector(pieChart:textForSliceAtIndex:)])
+            {
+                layer.text = [_dataSource pieChart:self textForSliceAtIndex:index];
+            }
+            
             [self updateLabelForLayer:layer value:values[index]];
             [layer createArcAnimationForKey:@"startAngle"
                                   fromValue:[NSNumber numberWithDouble:startFromAngle]
@@ -648,7 +655,8 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     if(_showPercentage)
         label = [NSString stringWithFormat:@"%0.0f", pieLayer.percentage*100];
     else
-        label = [NSString stringWithFormat:@"%0.0f", value];
+        label = (pieLayer.text)?pieLayer.text:[NSString stringWithFormat:@"%0.0f", value];
+    
     CGSize size = [label sizeWithFont:self.labelFont];
     
     [CATransaction setDisableActions:YES];
