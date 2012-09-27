@@ -281,7 +281,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)reloadData
 {
-    if (_dataSource && !_animationTimer) 
+    if (_dataSource)
     {
         CALayer *parentLayer = [_pieView layer];
         NSArray *slicelayers = [parentLayer sublayers];
