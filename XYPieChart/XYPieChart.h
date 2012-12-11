@@ -65,17 +65,7 @@
 - (void)reloadData;
 - (void)setPieBackgroundColor:(UIColor *)color;
 
-/**
- * Selects a slice as if the user tapped it.
- *
- * The delegate is not notified.
- */
 - (void)setSliceSelectedAtIndex:(NSInteger)index;
-/**
- * Selects a slice as if the user tapped it.
- *
- * The delegate is not notified.
- */
-- (void)setSliceDeselectedAtIndex:(NSInteger)index1;
+- (void)setSliceDeselectedAtIndex:(NSInteger)index;
 
 @end;

@@ -48,7 +48,7 @@
 @synthesize isSelected = _isSelected;
 - (NSString*)description
 {
-    return [NSString stringWithFormat:@"value:%f, percentage:%0.0f, start:%d, end:%d", _value, _percentage, _startAngle/M_PI*180, _endAngle/M_PI*180];
+    return [NSString stringWithFormat:@"value:%f, percentage:%0.0f, start:%f, end:%f", _value, _percentage, _startAngle/M_PI*180, _endAngle/M_PI*180];
 }
 + (BOOL)needsDisplayForKey:(NSString *)key 
 {
@@ -249,31 +249,6 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             [textLayer setString:label];
             [textLayer setBounds:CGRectMake(0, 0, size.width, size.height)];
         }
-    }
-}
-
-- (void)setSliceSelectedAtIndex:(NSInteger)index
-{
-    if(_selectedSliceOffsetRadius <= 0)
-        return;
-    SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:index];
-    if (layer && !layer.isSelected) {
-        CGPoint currPos = layer.position;
-        double middleAngle = (layer.startAngle + layer.endAngle)/2.0;
-        CGPoint newPos = CGPointMake(currPos.x + _selectedSliceOffsetRadius*cos(middleAngle), currPos.y + _selectedSliceOffsetRadius*sin(middleAngle));
-        layer.position = newPos;
-        layer.isSelected = YES;
-    }
-}
-
-- (void)setSliceDeselectedAtIndex:(NSInteger)index
-{
-    if(_selectedSliceOffsetRadius <= 0)
-        return;
-    SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:index];
-    if (layer && layer.isSelected) {
-        layer.position = CGPointMake(0, 0);
-        layer.isSelected = NO;
     }
 }
 
@@ -612,6 +587,33 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
                     [_delegate pieChart:self didSelectSliceAtIndex:newSelection];
             }
         }
+    }
+}
+
+#pragma mark - Selection Programmatically Without Notification
+
+- (void)setSliceSelectedAtIndex:(NSInteger)index
+{
+    if(_selectedSliceOffsetRadius <= 0)
+        return;
+    SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:index];
+    if (layer && !layer.isSelected) {
+        CGPoint currPos = layer.position;
+        double middleAngle = (layer.startAngle + layer.endAngle)/2.0;
+        CGPoint newPos = CGPointMake(currPos.x + _selectedSliceOffsetRadius*cos(middleAngle), currPos.y + _selectedSliceOffsetRadius*sin(middleAngle));
+        layer.position = newPos;
+        layer.isSelected = YES;
+    }
+}
+
+- (void)setSliceDeselectedAtIndex:(NSInteger)index
+{
+    if(_selectedSliceOffsetRadius <= 0)
+        return;
+    SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:index];
+    if (layer && layer.isSelected) {
+        layer.position = CGPointMake(0, 0);
+        layer.isSelected = NO;
     }
 }
 
