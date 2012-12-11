@@ -257,7 +257,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     if(_selectedSliceOffsetRadius <= 0)
         return;
     SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:index];
-    if (layer) {
+    if (layer && !layer.isSelected) {
         CGPoint currPos = layer.position;
         double middleAngle = (layer.startAngle + layer.endAngle)/2.0;
         CGPoint newPos = CGPointMake(currPos.x + _selectedSliceOffsetRadius*cos(middleAngle), currPos.y + _selectedSliceOffsetRadius*sin(middleAngle));
@@ -271,7 +271,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     if(_selectedSliceOffsetRadius <= 0)
         return;
     SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:index];
-    if (layer) {
+    if (layer && layer.isSelected) {
         layer.position = CGPointMake(0, 0);
         layer.isSelected = NO;
     }
