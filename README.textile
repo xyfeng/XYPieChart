@@ -1,8 +1,18 @@
 h1. XYPieChart
 
+
 XYPieChart is an simple and easy-to-use pie chart for iOS app. It started from a "Potion":http://www.potiondesign.com Project which needs an animated pie graph without interaction. All animation was implemented in the drawRect: method. After played with "BTSPieChart":https://github.com/briancoyner/Core-Animation-Pie-Chart, really like its code structure, it's clean, has well named functions, structure like a UITableView. XYPieChart rewrote the code, based on CALayers for the animation. Compared to BTSPieChart, XYPieChart is a prettier version, it has a simpler insert/delete slices algorithm, different design of slice selection, more flexible to customize. "Video Demo":http://vimeo.com/38069395
 
+
+<div class="macbuildserver-block">
+    <a class="macbuildserver-button" href="http://macbuildserver.com/project/github/build/?xcode_project=Demo%2FXYPieChart.xcodeproj&amp;target=XYPieChart&amp;repo_url=git%3A%2F%2Fgithub.com%2Fxyfeng%2FXYPieChart.git&amp;build_conf=Release" target="_blank"><img src="http://com.macbuildserver.github.s3-website-us-east-1.amazonaws.com/button_up.png"/></a><br/><sup><a href="http://macbuildserver.com/github/opensource/" target="_blank">by MacBuildServer</a></sup>
+</div>
+
+
+
 !http://blog.xystudio.cc/wp-content/uploads/2012/03/XYPieChart_Screenshot_1.png!
+
+
 
 h2. Features
 
