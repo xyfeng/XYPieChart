@@ -296,21 +296,6 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         [_pieView setUserInteractionEnabled:NO];
         
         __block NSMutableArray *layersToRemove = nil;
-        [CATransaction setCompletionBlock:^{
-            
-            [layersToRemove enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                [obj removeFromSuperlayer];
-            }];
-            
-            [layersToRemove removeAllObjects];
-            
-            for(SliceLayer *layer in _pieView.layer.sublayers)
-            {
-                [layer setZPosition:kDefaultSliceZOrder];
-            }
-            
-            [_pieView setUserInteractionEnabled:YES];
-        }];
         
         BOOL isOnStart = ([slicelayers count] == 0 && sliceCount);
         NSInteger diff = sliceCount - [slicelayers count];
@@ -421,6 +406,20 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             CATextLayer *textLayer = [[layer sublayers] objectAtIndex:0];
             [textLayer setHidden:YES];
         }
+        
+        [layersToRemove enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [obj removeFromSuperlayer];
+        }];
+        
+        [layersToRemove removeAllObjects];
+        
+        for(SliceLayer *layer in _pieView.layer.sublayers)
+        {
+            [layer setZPosition:kDefaultSliceZOrder];
+        }
+        
+        [_pieView setUserInteractionEnabled:YES];
+        
         [CATransaction setDisableActions:NO];
         [CATransaction commit];
     }
