@@ -60,6 +60,9 @@
 
     [self.percentageLabel.layer setCornerRadius:90];
     
+    //adding new label to show the sum of the slice on pie chart
+    [self.totalLabel.layer setCornerRadius:90];
+    
     self.sliceColors =[NSArray arrayWithObjects:
                        [UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1],
                        [UIColor colorWithRed:129/255.0 green:195/255.0 blue:29/255.0 alpha:1],
