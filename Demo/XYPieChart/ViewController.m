@@ -14,6 +14,7 @@
 @synthesize pieChartRight = _pieChart;
 @synthesize pieChartLeft = _pieChartCopy;
 @synthesize percentageLabel = _percentageLabel;
+@synthesize totalLabel=_totalLabel;
 @synthesize selectedSliceLabel = _selectedSlice;
 @synthesize numOfSlices = _numOfSlices;
 @synthesize indexOfSlices = _indexOfSlices;
@@ -60,8 +61,8 @@
 
     [self.percentageLabel.layer setCornerRadius:90];
     
-    //adding new label to show the sum of the slice on pie chart
     [self.totalLabel.layer setCornerRadius:90];
+    [self updateSumOfSlice];
     
     self.sliceColors =[NSArray arrayWithObjects:
                        [UIColor colorWithRed:246/255.0 green:155/255.0 blue:0/255.0 alpha:1],
@@ -128,6 +129,7 @@
 
 - (IBAction)clearSlices {
     [_slices removeAllObjects];
+    [self updateSumOfSlice];
     [self.pieChartLeft reloadData];
     [self.pieChartRight reloadData];
 }
@@ -139,6 +141,7 @@
         for (int n=0; n < abs(num); n++) 
         {
             NSNumber *one = [NSNumber numberWithInt:rand()%60+20];
+                        
             NSInteger index = 0;
             if(self.slices.count > 0)
             {
@@ -174,6 +177,8 @@
             }
         }
     }
+    
+    [self updateSumOfSlice];
     [self.pieChartLeft reloadData];
     [self.pieChartRight reloadData];
 }
@@ -184,6 +189,7 @@
     {
         [_slices replaceObjectAtIndex:i withObject:[NSNumber numberWithInt:rand()%60+20]];
     }
+    [self updateSumOfSlice];
     [self.pieChartLeft reloadData];
     [self.pieChartRight reloadData];
 }
@@ -191,6 +197,17 @@
 - (IBAction)showSlicePercentage:(id)sender {
     UISwitch *perSwitch = (UISwitch *)sender;
     [self.pieChartRight setShowPercentage:perSwitch.isOn];
+}
+
+/** this method will update the sum of the
+ *  sclices of pieChart to the totalLabel.
+**/
+-(void) updateSumOfSlice{
+    int sum = 0;
+    for(NSNumber *num in _slices){
+        sum += num.intValue;
+    }
+    [_totalLabel setText:[NSString stringWithFormat:@"%d",sum]];
 }
 
 #pragma mark - XYPieChart Data Source
