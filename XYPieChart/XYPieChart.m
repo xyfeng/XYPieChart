@@ -510,7 +510,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self touchesMoved:touches withEvent:event];
+   // [self touchesMoved:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -526,7 +526,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     CGPoint point = [touch locationInView:_pieView];
     NSInteger selectedIndex = [self getCurrentSelectedOnTouch:point];
     [self notifyDelegateOfSelectionChangeFrom:_selectedSliceIndex to:selectedIndex];
-    [self touchesCancelled:touches withEvent:event];
+    //[self touchesCancelled:touches withEvent:event];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
