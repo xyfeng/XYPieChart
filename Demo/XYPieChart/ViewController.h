@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet XYPieChart *pieChartRight;
 @property (strong, nonatomic) IBOutlet XYPieChart *pieChartLeft;
 @property (strong, nonatomic) IBOutlet UILabel *percentageLabel;
+@property (strong, nonatomic) IBOutlet UILabel *totalLabel;
 @property (strong, nonatomic) IBOutlet UILabel *selectedSliceLabel;
 @property (strong, nonatomic) IBOutlet UITextField *numOfSlices;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *indexOfSlices;

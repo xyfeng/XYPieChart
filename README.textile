@@ -10,7 +10,7 @@ XYPieChart is an simple and easy-to-use pie chart for iOS app. It started from a
 
 
 
-!http://blog.xystudio.cc/wp-content/uploads/2012/03/XYPieChart_Screenshot_1.png!
+!https://dl.dropboxusercontent.com/u/32437361/iOS%20Simulator%20Screen%20shot%2001-Jun-2013%203.40.37%20AM.png!
 
 
 
