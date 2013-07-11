@@ -629,9 +629,16 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     [pieLayer setStrokeColor:NULL];
     CATextLayer *textLayer = [CATextLayer layer];
     textLayer.contentsScale = [[UIScreen mainScreen] scale];
-    CGFontRef font = CGFontCreateWithFontName((__bridge CFStringRef)[self.labelFont fontName]);
-    [textLayer setFont:font];
-    CFRelease(font);
+    CGFontRef font = nil;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        font = CGFontCreateCopyWithVariations((__bridge CGFontRef)(self.labelFont), (__bridge CFDictionaryRef)(@{}));
+    } else {
+        font = CGFontCreateWithFontName((__bridge CFStringRef)[self.labelFont fontName]);
+    }
+    if (font) {
+        [textLayer setFont:font];
+        CFRelease(font);
+    }
     [textLayer setFontSize:self.labelFont.pointSize];
     [textLayer setAnchorPoint:CGPointMake(0.5, 0.5)];
     [textLayer setAlignmentMode:kCAAlignmentCenter];
