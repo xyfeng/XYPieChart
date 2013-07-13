@@ -40,12 +40,6 @@
 @end
 
 @implementation SliceLayer
-@synthesize text = _text;
-@synthesize value = _value;
-@synthesize percentage = _percentage;
-@synthesize startAngle = _startAngle;
-@synthesize endAngle = _endAngle;
-@synthesize isSelected = _isSelected;
 - (NSString*)description
 {
     return [NSString stringWithFormat:@"value:%f, percentage:%0.0f, start:%f, end:%f", _value, _percentage, _startAngle/M_PI*180, _endAngle/M_PI*180];
@@ -104,21 +98,6 @@
 }
 
 static NSUInteger kDefaultSliceZOrder = 100;
-
-@synthesize dataSource = _dataSource;
-@synthesize delegate = _delegate;
-@synthesize startPieAngle = _startPieAngle;
-@synthesize animationSpeed = _animationSpeed;
-@synthesize pieCenter = _pieCenter;
-@synthesize pieRadius = _pieRadius;
-@synthesize showLabel = _showLabel;
-@synthesize labelFont = _labelFont;
-@synthesize labelColor = _labelColor;
-@synthesize labelShadowColor = _labelShadowColor;
-@synthesize labelRadius = _labelRadius;
-@synthesize selectedSliceStroke = _selectedSliceStroke;
-@synthesize selectedSliceOffsetRadius = _selectedSliceOffsetRadius;
-@synthesize showPercentage = _showPercentage;
 
 static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAngle, CGFloat endAngle) 
 {
