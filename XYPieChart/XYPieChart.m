@@ -136,6 +136,9 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         
         _showLabel = YES;
         _showPercentage = YES;
+        
+        _selectedSliceShadowColor = [UIColor clearColor];
+        _shadedSliceOpacity = 1.0f;
     }
     return self;
 }
@@ -522,17 +525,13 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)notifyDelegateOfSelectionChangeFrom:(NSUInteger)previousSelection to:(NSUInteger)newSelection
 {
-    if (previousSelection != newSelection) 
-    {
-        if (previousSelection != -1 && [_delegate respondsToSelector:@selector(pieChart:willDeselectSliceAtIndex:)])
-        {
+    if (previousSelection != newSelection) {
+        
+        if (previousSelection != -1 && [_delegate respondsToSelector:@selector(pieChart:willDeselectSliceAtIndex:)]) {
             [_delegate pieChart:self willDeselectSliceAtIndex:previousSelection];
         }
         
-        _selectedSliceIndex = newSelection;
-        
-        if (newSelection != -1) 
-        {
+        if (newSelection != -1) {
             if([_delegate respondsToSelector:@selector(pieChart:willSelectSliceAtIndex:)])
                 [_delegate pieChart:self willSelectSliceAtIndex:newSelection];
             if(previousSelection != -1 && [_delegate respondsToSelector:@selector(pieChart:didDeselectSliceAtIndex:)])
@@ -542,17 +541,18 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             [self setSliceSelectedAtIndex:newSelection];
         }
         
-        if(previousSelection != -1)
-        {
+        _selectedSliceIndex = newSelection;
+
+        if(previousSelection != -1) {
             [self setSliceDeselectedAtIndex:previousSelection];
             if([_delegate respondsToSelector:@selector(pieChart:didDeselectSliceAtIndex:)])
                 [_delegate pieChart:self didDeselectSliceAtIndex:previousSelection];
         }
-    }
-    else if (newSelection != -1)
-    {
+    } else if (newSelection != -1) {
+        _selectedSliceIndex = -1;
+        
         SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:newSelection];
-        if(_selectedSliceOffsetRadius > 0 && layer){
+        if (layer) {
 
             if (layer.isSelected) {
                 if ([_delegate respondsToSelector:@selector(pieChart:willDeselectSliceAtIndex:)])
@@ -560,8 +560,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
                 [self setSliceDeselectedAtIndex:newSelection];
                 if (newSelection != -1 && [_delegate respondsToSelector:@selector(pieChart:didDeselectSliceAtIndex:)])
                     [_delegate pieChart:self didDeselectSliceAtIndex:newSelection];
-            }
-            else {
+            } else {
                 if ([_delegate respondsToSelector:@selector(pieChart:willSelectSliceAtIndex:)])
                     [_delegate pieChart:self willSelectSliceAtIndex:newSelection];
                 [self setSliceSelectedAtIndex:newSelection];
@@ -576,26 +575,51 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)setSliceSelectedAtIndex:(NSInteger)index
 {
-    if(_selectedSliceOffsetRadius <= 0)
-        return;
-    SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:index];
+    SliceLayer *layer;
+    if (_selectedSliceIndex != -1 &_selectedSliceIndex != index) {
+        layer = [_pieView.layer.sublayers objectAtIndex: _selectedSliceIndex];
+        layer.opacity = _shadedSliceOpacity;
+    }
+    
+    layer = [_pieView.layer.sublayers objectAtIndex:index];
+
     if (layer && !layer.isSelected) {
-        CGPoint currPos = layer.position;
-        double middleAngle = (layer.startAngle + layer.endAngle)/2.0;
-        CGPoint newPos = CGPointMake(currPos.x + _selectedSliceOffsetRadius*cos(middleAngle), currPos.y + _selectedSliceOffsetRadius*sin(middleAngle));
-        layer.position = newPos;
+        if (_selectedSliceOffsetRadius > 0.0f) {
+            CGPoint currPos = layer.position;
+            double middleAngle = (layer.startAngle + layer.endAngle)/2.0;
+            CGPoint newPos = CGPointMake(currPos.x + _selectedSliceOffsetRadius*cos(middleAngle), currPos.y + _selectedSliceOffsetRadius*sin(middleAngle));
+            layer.position = newPos;
+        }
+        layer.shadowOpacity = 1.0f;
+        layer.shadowRadius = _selectedSliceShadowRadius;
+        layer.shadowColor = _selectedSliceShadowColor.CGColor;
+        layer.opacity = 1.0f;
         layer.isSelected = YES;
+    }
+    
+    for (SliceLayer *layer in _pieView.layer.sublayers) {
+        if (layer.isSelected == NO) {
+            layer.opacity = _shadedSliceOpacity;
+        }
     }
 }
 
 - (void)setSliceDeselectedAtIndex:(NSInteger)index
 {
-    if(_selectedSliceOffsetRadius <= 0)
-        return;
     SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:index];
     if (layer && layer.isSelected) {
         layer.position = CGPointMake(0, 0);
-        layer.isSelected = NO;
+        layer.shadowOpacity = 0.0f;
+        layer.shadowRadius = 0.0f;
+        layer.shadowColor = [UIColor clearColor].CGColor;
+    }
+    
+    layer.isSelected = NO;
+    
+    if (_selectedSliceIndex == -1) {
+        for (SliceLayer *layer in _pieView.layer.sublayers) {
+            layer.opacity = 1.0f;
+        }
     }
 }
 
@@ -606,6 +630,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     SliceLayer *pieLayer = [SliceLayer layer];
     [pieLayer setZPosition:0];
     [pieLayer setStrokeColor:NULL];
+    [pieLayer setShadowOffset:CGSizeMake(0.0f, 0.0f)];
     CATextLayer *textLayer = [CATextLayer layer];
     textLayer.contentsScale = [[UIScreen mainScreen] scale];
     CGFontRef font = nil;
