@@ -543,56 +543,46 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)notifyDelegateOfSelectionChangeFrom:(NSUInteger)previousSelection to:(NSUInteger)newSelection
 {
-    if (previousSelection != newSelection) 
-    {
-        if (previousSelection != -1 && [_delegate respondsToSelector:@selector(pieChart:willDeselectSliceAtIndex:)])
-        {
-            [_delegate pieChart:self willDeselectSliceAtIndex:previousSelection];
+    if (previousSelection != newSelection){
+        if(previousSelection != -1){
+            NSUInteger tempPre = previousSelection;
+            if ([_delegate respondsToSelector:@selector(pieChart:willDeselectSliceAtIndex:)])
+                [_delegate pieChart:self willDeselectSliceAtIndex:tempPre];
+            [self setSliceDeselectedAtIndex:tempPre];
+            previousSelection = newSelection;
+            if([_delegate respondsToSelector:@selector(pieChart:didDeselectSliceAtIndex:)])
+                [_delegate pieChart:self didDeselectSliceAtIndex:tempPre];
         }
         
-        _selectedSliceIndex = newSelection;
-        
-        if (newSelection != -1) 
-        {
+        if (newSelection != -1){
             if([_delegate respondsToSelector:@selector(pieChart:willSelectSliceAtIndex:)])
                 [_delegate pieChart:self willSelectSliceAtIndex:newSelection];
-            if(previousSelection != -1 && [_delegate respondsToSelector:@selector(pieChart:didDeselectSliceAtIndex:)])
-                [_delegate pieChart:self didDeselectSliceAtIndex:previousSelection];
+            [self setSliceSelectedAtIndex:newSelection];
+            _selectedSliceIndex = newSelection;
             if([_delegate respondsToSelector:@selector(pieChart:didSelectSliceAtIndex:)])
                 [_delegate pieChart:self didSelectSliceAtIndex:newSelection];
-            [self setSliceSelectedAtIndex:newSelection];
         }
-        
-        if(previousSelection != -1)
-        {
-            [self setSliceDeselectedAtIndex:previousSelection];
-            if([_delegate respondsToSelector:@selector(pieChart:didDeselectSliceAtIndex:)])
-                [_delegate pieChart:self didDeselectSliceAtIndex:previousSelection];
-        }
-    }
-    else if (newSelection != -1)
-    {
+    }else if (newSelection != -1){
         SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:newSelection];
         if(_selectedSliceOffsetRadius > 0 && layer){
-
             if (layer.isSelected) {
                 if ([_delegate respondsToSelector:@selector(pieChart:willDeselectSliceAtIndex:)])
                     [_delegate pieChart:self willDeselectSliceAtIndex:newSelection];
                 [self setSliceDeselectedAtIndex:newSelection];
                 if (newSelection != -1 && [_delegate respondsToSelector:@selector(pieChart:didDeselectSliceAtIndex:)])
                     [_delegate pieChart:self didDeselectSliceAtIndex:newSelection];
-            }
-            else {
+                previousSelection = _selectedSliceIndex = -1;
+            }else{
                 if ([_delegate respondsToSelector:@selector(pieChart:willSelectSliceAtIndex:)])
                     [_delegate pieChart:self willSelectSliceAtIndex:newSelection];
                 [self setSliceSelectedAtIndex:newSelection];
+                previousSelection = _selectedSliceIndex = newSelection;
                 if (newSelection != -1 && [_delegate respondsToSelector:@selector(pieChart:didSelectSliceAtIndex:)])
                     [_delegate pieChart:self didSelectSliceAtIndex:newSelection];
             }
         }
     }
 }
-
 #pragma mark - Selection Programmatically Without Notification
 
 - (void)setSliceSelectedAtIndex:(NSInteger)index
