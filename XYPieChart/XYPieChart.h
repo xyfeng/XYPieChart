@@ -28,22 +28,40 @@
 
 #import <UIKit/UIKit.h>
 
+/**    ___
+        /3|4\
+ |-+-|
+ \2|1/
+ */
+typedef enum {
+    XYPieChartQuadrantUnknown   = 0,                //0000
+    XYPieChartFirstQuadrant     = (0x1 << 0),       //0001
+    XYPieChartSecondQuadrant    = (0x1 << 1),       //0010
+    XYPieChartThirdQuadrant     = (0x1 << 2),       //0100
+    XYPieChartFourthQuadrant    = (0x1 << 3),       //1000
+    XYPieChartBottomQuadrant    = (0x3 << 0),       //0011
+    XYPieChartTopQuadrant       = (0x3 << 2),       //1100
+    XYPieChartLeftQuadrant      = (0x6 << 0),       //0110
+    XYPieChartRightQuadrant     = (0x9 << 0),       //1001
+} XYPieChartQuadrant;
+
 @class XYPieChart;
 @protocol XYPieChartDataSource <NSObject>
 @required
-- (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart;
-- (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index;
+- (NSUInteger)numberOfSlicesInPieChart:(XYPieChart*)pieChart;
+- (CGFloat)pieChart:(XYPieChart*)pieChart valueForSliceAtIndex:(NSUInteger)index;
 @optional
-- (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index;
-- (NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index;
+- (UIColor*)pieChart:(XYPieChart*)pieChart colorForSliceAtIndex:(NSUInteger)index;
+- (NSString*)pieChart:(XYPieChart*)pieChart textForSliceAtIndex:(NSUInteger)index;
+- (UIView*)pieChart:(XYPieChart*)pieChart detailViewForSliceAtIndex:(NSUInteger)index andQuadrant:(XYPieChartQuadrant)quadrant;
 @end
 
 @protocol XYPieChartDelegate <NSObject>
 @optional
-- (void)pieChart:(XYPieChart *)pieChart willSelectSliceAtIndex:(NSUInteger)index;
-- (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index;
-- (void)pieChart:(XYPieChart *)pieChart willDeselectSliceAtIndex:(NSUInteger)index;
-- (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index;
+- (void)pieChart:(XYPieChart*)pieChart willSelectSliceAtIndex:(NSUInteger)index;
+- (void)pieChart:(XYPieChart*)pieChart didSelectSliceAtIndex:(NSUInteger)index;
+- (void)pieChart:(XYPieChart*)pieChart willDeselectSliceAtIndex:(NSUInteger)index;
+- (void)pieChart:(XYPieChart*)pieChart didDeselectSliceAtIndex:(NSUInteger)index;
 @end
 
 @interface XYPieChart : UIView
@@ -52,20 +70,25 @@
 @property(nonatomic, assign) CGFloat startPieAngle;
 @property(nonatomic, assign) CGFloat animationSpeed;
 @property(nonatomic, assign) CGPoint pieCenter;
-@property(nonatomic, assign) CGFloat pieRadius;
+@property(nonatomic, assign) CGFloat pieInnerRadius;
+@property(nonatomic, assign) CGFloat pieOuterRadius;
 @property(nonatomic, assign) BOOL    showLabel;
 @property(nonatomic, strong) UIFont  *labelFont;
 @property(nonatomic, strong) UIColor *labelColor;
+@property(nonatomic, strong) UIColor *labelSelectedColor;
 @property(nonatomic, strong) UIColor *labelShadowColor;
 @property(nonatomic, assign) CGFloat labelRadius;
 @property(nonatomic, assign) CGFloat selectedSliceStroke;
 @property(nonatomic, assign) CGFloat selectedSliceOffsetRadius;
+@property(nonatomic, strong) UIColor *selectedSliceColor;
 @property(nonatomic, assign) BOOL    showPercentage;
+@property(nonatomic, assign) BOOL    shouldRotateWhenSliceSelected;
+
 - (id)initWithFrame:(CGRect)frame Center:(CGPoint)center Radius:(CGFloat)radius;
 - (void)reloadData;
-- (void)setPieBackgroundColor:(UIColor *)color;
+- (void)setPieBackgroundColor:(UIColor*)color;
 
 - (void)setSliceSelectedAtIndex:(NSInteger)index;
 - (void)setSliceDeselectedAtIndex:(NSInteger)index;
 
-@end;
+@end
