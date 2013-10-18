@@ -736,14 +736,12 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
                 {
                     CGFloat tmpSliceMiddleAngle = sliceMiddleAngle;
                     while (sliceMiddleAngle > M_PI) sliceMiddleAngle -= 2*M_PI;
-                    NSLog(@"%f|%f",tmpSliceMiddleAngle,sliceMiddleAngle);
                     self.currentPieOffsetAngle -= sliceMiddleAngle;
                 }
                 else
                 {
                     CGFloat tmpSliceMiddleAngle = sliceMiddleAngle;
                     while (sliceMiddleAngle < M_PI) sliceMiddleAngle += 2*M_PI;
-                    NSLog(@"%f|%f",tmpSliceMiddleAngle,sliceMiddleAngle);
                     self.currentPieOffsetAngle += 2*M_PI - sliceMiddleAngle;
                 }
             
