@@ -54,6 +54,8 @@ typedef enum {
 - (UIColor*)pieChart:(XYPieChart*)pieChart colorForSliceAtIndex:(NSUInteger)index;
 - (NSString*)pieChart:(XYPieChart*)pieChart textForSliceAtIndex:(NSUInteger)index;
 - (UIView*)pieChart:(XYPieChart*)pieChart detailViewForSliceAtIndex:(NSUInteger)index andQuadrant:(XYPieChartQuadrant)quadrant;
+
+- (UIView*)pieChartCentralView:(XYPieChart*)pieChart;
 @end
 
 @protocol XYPieChartDelegate <NSObject>
@@ -72,6 +74,7 @@ typedef enum {
 @property(nonatomic, assign) CGPoint pieCenter;
 @property(nonatomic, assign) CGFloat pieInnerRadius;
 @property(nonatomic, assign) CGFloat pieOuterRadius;
+@property(nonatomic, assign) CGFloat centralRadius;
 @property(nonatomic, assign) BOOL    showLabel;
 @property(nonatomic, strong) UIFont  *labelFont;
 @property(nonatomic, strong) UIColor *labelColor;
@@ -81,6 +84,7 @@ typedef enum {
 @property(nonatomic, assign) CGFloat selectedSliceStroke;
 @property(nonatomic, assign) CGFloat selectedSliceOffsetRadius;
 @property(nonatomic, strong) UIColor *selectedSliceColor;
+@property(nonatomic, strong) UIColor *centralColor;
 @property(nonatomic, assign) BOOL    showPercentage;
 @property(nonatomic, assign) BOOL    shouldRotateWhenSliceSelected;
 
