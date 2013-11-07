@@ -87,6 +87,12 @@
 }
 @end
 
+@interface CentralLayer : CAShapeLayer
+
+
+
+@end
+
 @interface XYPieChart ()
 
 @property (nonatomic, strong) UIView*           pieView;
@@ -191,6 +197,7 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
     CGRect bounds = [[self layer] bounds];
     self.pieOuterRadius = MIN(bounds.size.width/2, bounds.size.height/2) - 10;
     self.pieInnerRadius = 0.f;
+    self.centralRadius = 0.f;
     self.pieCenter = CGPointMake(bounds.size.width/2, bounds.size.height/2);
     self.labelFont = [UIFont boldSystemFontOfSize:MAX((int)self.pieOuterRadius/10, 5)];
     _labelColor = [UIColor whiteColor];
@@ -239,6 +246,22 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
     }
 }
 
+- (void)setCentralRadius:(CGFloat)centralRadius
+{
+    if (centralRadius < 0)
+    {
+        _centralRadius = 0;
+    }
+    else if (centralRadius >= self.pieInnerRadius)
+    {
+        _centralRadius = self.pieInnerRadius - 1;
+    }
+    else
+    {
+        _centralRadius = centralRadius;
+    }
+}
+
 - (void)setPieBackgroundColor:(UIColor*)color
 {
     [self.pieView setBackgroundColor:color];
@@ -249,17 +272,17 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
     __block NSInteger selectedIndex = -1;
     NSArray* layers = [self.pieView.layer.sublayers copy];
     [layers enumerateObjectsUsingBlock:^(CAShapeLayer* layer, NSUInteger idx, BOOL *stop)
-    {
-        if ([layer isKindOfClass:[SliceLayer class]])
-        {
-            SliceLayer* sliceLayer = (SliceLayer*)layer;
-            if (sliceLayer.isSelected)
-            {
-                selectedIndex = idx;
-                *stop = YES;
-            }
-        }
-    }];
+     {
+         if ([layer isKindOfClass:[SliceLayer class]])
+         {
+             SliceLayer* sliceLayer = (SliceLayer*)layer;
+             if (sliceLayer.isSelected)
+             {
+                 selectedIndex = idx;
+                 *stop = YES;
+             }
+         }
+     }];
     return selectedIndex;
 }
 
@@ -298,17 +321,19 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
 {
     if (self.dataSource)
     {
+        [self setCentralViewVisible:YES];
+        
         CALayer *parentLayer = [self.pieView layer];
         NSArray *slicelayers = [parentLayer sublayers];
         
         [slicelayers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-        {
-            SliceLayer *layer = (SliceLayer*)obj;
-            if(layer.isSelected)
-            {
-                [self setSliceDeselectedAtIndex:idx];
-            }
-        }];
+         {
+             SliceLayer *layer = (SliceLayer*)obj;
+             if(layer.isSelected)
+             {
+                 [self setSliceDeselectedAtIndex:idx];
+             }
+         }];
         [self setDetailViewsVisibles:NO];
         
         double startToAngle = self.startPieAngle + self.currentPieOffsetAngle;
@@ -436,6 +461,7 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
             startToAngle = endToAngle;
             
         }
+        
         [CATransaction setDisableActions:YES];
         for(SliceLayer *layer in layersToRemove)
         {
@@ -447,9 +473,9 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
         }
         
         [layersToRemove enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-        {
-            [obj removeFromSuperlayer];
-        }];
+         {
+             [obj removeFromSuperlayer];
+         }];
         
         [layersToRemove removeAllObjects];
         
@@ -462,6 +488,19 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
         
         [CATransaction setDisableActions:NO];
         [CATransaction commit];
+    }
+}
+
+- (void)setCentralViewVisible:(BOOL)visible
+{
+    if (visible &&
+        [self.dataSource respondsToSelector:@selector(pieChartCentralView:)])
+    {
+        UIView* centralView = [self.dataSource pieChartCentralView:self];
+        
+        centralView.center = self.center;
+        
+        [self addSubview:centralView];
     }
 }
 
@@ -546,6 +585,16 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
             [CATransaction setDisableActions:NO];
         }
     }];
+    
+   if (self.centralRadius > 0) {
+        CAShapeLayer* centralLayer = [self createCentralLayer];
+        CGPathRef path2 = CGPathCreateArc(self.pieCenter, 0, self.centralRadius, 0, 360);
+        [centralLayer setPath:path2];
+        
+        CFRelease(path2);
+        
+        [[self.pieView layer] addSublayer:centralLayer];
+    }
 }
 
 - (void)animationDidStart:(CAAnimation*)anim
@@ -603,24 +652,24 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
     NSArray *pieLayers = [parentLayer sublayers];
     
     [pieLayers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
-    {
-        SliceLayer *pieLayer = (SliceLayer*)obj;
-        CGPathRef path = [pieLayer path];
-        
-        if (CGPathContainsPoint(path, &transform, point, 0))
-        {
-            [pieLayer setLineWidth:self.selectedSliceStroke];
-            [pieLayer setStrokeColor:[UIColor whiteColor].CGColor];
-            [pieLayer setLineJoin:kCALineJoinBevel];
-            [pieLayer setZPosition:MAXFLOAT];
-            selectedIndex = idx;
-        }
-        else
-        {
-            [pieLayer setZPosition:kDefaultSliceZOrder];
-            [pieLayer setLineWidth:0.0];
-        }
-    }];
+     {
+         SliceLayer *pieLayer = (SliceLayer*)obj;
+         CGPathRef path = [pieLayer path];
+         
+         if (CGPathContainsPoint(path, &transform, point, 0))
+         {
+             [pieLayer setLineWidth:self.selectedSliceStroke];
+             [pieLayer setStrokeColor:[UIColor whiteColor].CGColor];
+             [pieLayer setLineJoin:kCALineJoinBevel];
+             [pieLayer setZPosition:MAXFLOAT];
+             selectedIndex = idx;
+         }
+         else
+         {
+             [pieLayer setZPosition:kDefaultSliceZOrder];
+             [pieLayer setLineWidth:0.0];
+         }
+     }];
     return selectedIndex;
 }
 
@@ -731,17 +780,17 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
         {
             NSArray* sliceLayers = self.pieView.layer.sublayers;
             
-                double sliceMiddleAngle = (selectedSlicelayer.startAngle+selectedSlicelayer.endAngle)/2;
-                if (sliceMiddleAngle > 0)
-                {
-                    while (sliceMiddleAngle > M_PI) sliceMiddleAngle -= 2*M_PI;
-                    self.currentPieOffsetAngle -= sliceMiddleAngle;
-                }
-                else
-                {
-                    while (sliceMiddleAngle < M_PI) sliceMiddleAngle += 2*M_PI;
-                    self.currentPieOffsetAngle += 2*M_PI - sliceMiddleAngle;
-                }
+            double sliceMiddleAngle = (selectedSlicelayer.startAngle+selectedSlicelayer.endAngle)/2;
+            if (sliceMiddleAngle > 0)
+            {
+                while (sliceMiddleAngle > M_PI) sliceMiddleAngle -= 2*M_PI;
+                self.currentPieOffsetAngle -= sliceMiddleAngle;
+            }
+            else
+            {
+                while (sliceMiddleAngle < M_PI) sliceMiddleAngle += 2*M_PI;
+                self.currentPieOffsetAngle += 2*M_PI - sliceMiddleAngle;
+            }
             
             __block double startToAngle = self.startPieAngle + self.currentPieOffsetAngle;
             __block double endToAngle = self.startPieAngle + self.currentPieOffsetAngle;
@@ -753,20 +802,20 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
             
             [self.pieView setUserInteractionEnabled:NO];
             [sliceLayers enumerateObjectsUsingBlock:^(SliceLayer* layer, NSUInteger idx, BOOL *stop)
-            {
-                double sliceSizeAngle = layer.endAngle - layer.startAngle;
-                endToAngle += sliceSizeAngle;
-                
-                [layer createArcAnimationForKey:@"startAngle"
-                                      fromValue:[NSNumber numberWithDouble:layer.startAngle]
-                                        toValue:[NSNumber numberWithDouble:startToAngle+self.startPieAngle]
-                                       Delegate:self];
-                [layer createArcAnimationForKey:@"endAngle"
-                                      fromValue:[NSNumber numberWithDouble:layer.endAngle]
-                                        toValue:[NSNumber numberWithDouble:endToAngle+self.startPieAngle]
-                                       Delegate:self];
-                startToAngle = endToAngle;
-            }];
+             {
+                 double sliceSizeAngle = layer.endAngle - layer.startAngle;
+                 endToAngle += sliceSizeAngle;
+                 
+                 [layer createArcAnimationForKey:@"startAngle"
+                                       fromValue:[NSNumber numberWithDouble:layer.startAngle]
+                                         toValue:[NSNumber numberWithDouble:startToAngle+self.startPieAngle]
+                                        Delegate:self];
+                 [layer createArcAnimationForKey:@"endAngle"
+                                       fromValue:[NSNumber numberWithDouble:layer.endAngle]
+                                         toValue:[NSNumber numberWithDouble:endToAngle+self.startPieAngle]
+                                        Delegate:self];
+                 startToAngle = endToAngle;
+             }];
             
             [self.pieView setUserInteractionEnabled:YES];
             [CATransaction setDisableActions:NO];
@@ -844,6 +893,15 @@ static XYPieChartQuadrant XYPieChartQuadrantForAngle(CGFloat angle)
     [CATransaction setDisableActions:NO];
     [pieLayer addSublayer:textLayer];
     return pieLayer;
+}
+
+- (CAShapeLayer*)createCentralLayer
+{
+    CAShapeLayer* centralLayer = [CAShapeLayer layer];
+    
+    [centralLayer setFillColor:self.centralColor.CGColor];
+    
+    return centralLayer;
 }
 
 - (UIColor*)colorForSliceAtIndex:(NSInteger)index
