@@ -47,8 +47,8 @@
 @end
 
 @interface XYPieChart : UIView
-@property(nonatomic, weak) id<XYPieChartDataSource> dataSource;
-@property(nonatomic, weak) id<XYPieChartDelegate> delegate;
+@property(nonatomic, weak) IBOutlet id<XYPieChartDataSource> dataSource;
+@property(nonatomic, weak) IBOutlet id<XYPieChartDelegate> delegate;
 @property(nonatomic, assign) CGFloat startPieAngle;
 @property(nonatomic, assign) CGFloat animationSpeed;
 @property(nonatomic, assign) CGPoint pieCenter;
