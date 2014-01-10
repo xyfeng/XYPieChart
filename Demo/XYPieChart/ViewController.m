@@ -207,6 +207,13 @@
     return [self.sliceColors objectAtIndex:(index % self.sliceColors.count)];
 }
 
+- (NSString *)pieChart:(XYPieChart *)pieChart textForSliceAtIndex:(NSUInteger)index
+{
+    float percent = ([self.slices[index] floatValue]*100/[self sum]);
+    NSString *text = [NSString stringWithFormat:@"%0.0f\n(%0.0f %%)",[self.slices[index] floatValue], percent];
+    return text;
+}
+
 #pragma mark - XYPieChart Delegate
 - (void)pieChart:(XYPieChart *)pieChart willSelectSliceAtIndex:(NSUInteger)index
 {
@@ -225,5 +232,23 @@
     NSLog(@"did select slice at index %d",index);
     self.selectedSliceLabel.text = [NSString stringWithFormat:@"$%@",[self.slices objectAtIndex:index]];
 }
+
+#pragma mark - sum
+
+- (float)sum
+{
+    float result = 0;
+    
+    if(self.slices == nil || self.slices.count == 0)
+        return result;
+    
+    
+    for (NSNumber *n in self.slices)
+        result += n.floatValue;
+    
+    return result;
+    
+}
+
 
 @end
