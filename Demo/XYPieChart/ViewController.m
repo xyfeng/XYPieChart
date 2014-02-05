@@ -11,16 +11,6 @@
 
 @implementation ViewController
 
-@synthesize pieChartRight = _pieChart;
-@synthesize pieChartLeft = _pieChartCopy;
-@synthesize percentageLabel = _percentageLabel;
-@synthesize selectedSliceLabel = _selectedSlice;
-@synthesize numOfSlices = _numOfSlices;
-@synthesize indexOfSlices = _indexOfSlices;
-@synthesize downArrow = _downArrow;
-@synthesize slices = _slices;
-@synthesize sliceColors = _sliceColors;
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -46,16 +36,21 @@
     [self.pieChartLeft setLabelFont:[UIFont fontWithName:@"DBLCDTempBlack" size:24]];
     [self.pieChartLeft setLabelRadius:160];
     [self.pieChartLeft setShowPercentage:YES];
-    [self.pieChartLeft setPieBackgroundColor:[UIColor colorWithWhite:0.95 alpha:1]];
+    [self.pieChartLeft setPieBackgroundColor:[UIColor clearColor]];
     [self.pieChartLeft setPieCenter:CGPointMake(240, 240)];
     [self.pieChartLeft setUserInteractionEnabled:NO];
     [self.pieChartLeft setLabelShadowColor:[UIColor blackColor]];
+    self.pieChartLeft.shouldRotateWhenSliceSelected = YES;
+    self.pieChartLeft.pieInnerRadius = 90.f;
 
     [self.pieChartRight setDelegate:self];
     [self.pieChartRight setDataSource:self];
     [self.pieChartRight setPieCenter:CGPointMake(240, 240)];
     [self.pieChartRight setShowPercentage:NO];
     [self.pieChartRight setLabelColor:[UIColor blackColor]];
+    self.pieChartRight.shouldRotateWhenSliceSelected = YES;
+    self.pieChartRight.selectedSliceColor = [UIColor blackColor];
+    self.pieChartRight.labelSelectedColor = [UIColor whiteColor];
 
     [self.percentageLabel.layer setCornerRadius:90];
     
@@ -122,7 +117,8 @@
     self.numOfSlices.text = [NSString stringWithFormat:@"%d",num];
 }
 
-- (IBAction)clearSlices {
+- (IBAction)clearSlices
+{
     [_slices removeAllObjects];
     [self.pieChartLeft reloadData];
     [self.pieChartRight reloadData];
@@ -131,14 +127,16 @@
 - (IBAction)addSliceBtnClicked:(id)sender 
 {
     NSInteger num = [self.numOfSlices.text intValue];
-    if (num > 0) {
+    if (num > 0)
+    {
         for (int n=0; n < abs(num); n++) 
         {
             NSNumber *one = [NSNumber numberWithInt:rand()%60+20];
             NSInteger index = 0;
             if(self.slices.count > 0)
             {
-                switch (self.indexOfSlices.selectedSegmentIndex) {
+                switch (self.indexOfSlices.selectedSegmentIndex)
+                {
                     case 1:
                         index = rand()%self.slices.count;
                         break;
@@ -158,7 +156,8 @@
             NSInteger index = 0;
             if(self.slices.count > 0)
             {
-                switch (self.indexOfSlices.selectedSegmentIndex) {
+                switch (self.indexOfSlices.selectedSegmentIndex)
+                {
                     case 1:
                         index = rand()%self.slices.count;
                         break;
@@ -184,7 +183,8 @@
     [self.pieChartRight reloadData];
 }
 
-- (IBAction)showSlicePercentage:(id)sender {
+- (IBAction)showSlicePercentage:(id)sender
+{
     UISwitch *perSwitch = (UISwitch *)sender;
     [self.pieChartRight setShowPercentage:perSwitch.isOn];
 }
@@ -205,6 +205,41 @@
 {
     if(pieChart == self.pieChartRight) return nil;
     return [self.sliceColors objectAtIndex:(index % self.sliceColors.count)];
+}
+
+- (UIView*)pieChart:(XYPieChart*)pieChart detailViewForSliceAtIndex:(NSUInteger)index andQuadrant:(XYPieChartQuadrant)quadrant
+{
+    
+    if(pieChart == self.pieChartRight) return nil;
+
+    UILabel* detailViewLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)];
+    detailViewLabel.textColor = [UIColor whiteColor];
+    detailViewLabel.textAlignment = NSTextAlignmentCenter;
+    detailViewLabel.backgroundColor = [UIColor clearColor];
+    
+    NSString* quadrantString;
+    switch (quadrant)
+    {
+        case XYPieChartFirstQuadrant:
+            quadrantString = @"I";
+            break;
+        case XYPieChartSecondQuadrant:
+            quadrantString = @"II";
+            break;
+        case XYPieChartThirdQuadrant:
+            quadrantString = @"III";
+            break;
+        case XYPieChartFourthQuadrant:
+            quadrantString = @"IV";
+            break;
+        default:
+            quadrantString = @"?";
+            break;
+    }
+    
+    detailViewLabel.text = [NSString stringWithFormat:@"%d - %@", index, quadrantString];
+    detailViewLabel.backgroundColor = [self.sliceColors objectAtIndex:(index % self.sliceColors.count)];
+    return detailViewLabel;
 }
 
 #pragma mark - XYPieChart Delegate
