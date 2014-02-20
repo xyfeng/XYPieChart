@@ -84,7 +84,8 @@
 }
 @end
 
-@interface XYPieChart (Private) 
+@interface XYPieChart (Private)
+- (void)updateLayers;
 - (void)updateTimerFired:(NSTimer *)timer;
 - (SliceLayer *)createSliceLayer;
 - (CGSize)sizeThatFitsString:(NSString *)string;
@@ -238,7 +239,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             label = [NSString stringWithFormat:@"%0.0f", layer.percentage*100];
         else
             label = (layer.text)?layer.text:[NSString stringWithFormat:@"%0.0f", layer.value];
-        CGSize size = [label sizeWithFont:self.labelFont];
+        CGSize size = [label sizeWithAttributes:@{NSFontAttributeName:self.labelFont}];
         
         if(M_PI*2*_labelRadius*layer.percentage < MAX(size.width,size.height))
         {
@@ -427,11 +428,11 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 #pragma mark - Animation Delegate + Run Loop Timer
 
-- (void)updateTimerFired:(NSTimer *)timer;
-{   
+- (void)updateLayers
+{
     CALayer *parentLayer = [_pieView layer];
     NSArray *pieLayers = [parentLayer sublayers];
-
+    
     [pieLayers enumerateObjectsUsingBlock:^(CAShapeLayer * obj, NSUInteger idx, BOOL *stop) {
         
         NSNumber *presentationLayerStartAngle = [[obj presentationLayer] valueForKey:@"startAngle"];
@@ -439,19 +440,24 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         
         NSNumber *presentationLayerEndAngle = [[obj presentationLayer] valueForKey:@"endAngle"];
         CGFloat interpolatedEndAngle = [presentationLayerEndAngle doubleValue];
-
+        
         CGPathRef path = CGPathCreateArc(_pieCenter, _pieRadius, interpolatedStartAngle, interpolatedEndAngle);
         [obj setPath:path];
         CFRelease(path);
         
         {
             CALayer *labelLayer = [[obj sublayers] objectAtIndex:0];
-            CGFloat interpolatedMidAngle = (interpolatedEndAngle + interpolatedStartAngle) / 2;        
+            CGFloat interpolatedMidAngle = (interpolatedEndAngle + interpolatedStartAngle) / 2;
             [CATransaction setDisableActions:YES];
             [labelLayer setPosition:CGPointMake(_pieCenter.x + (_labelRadius * cos(interpolatedMidAngle)), _pieCenter.y + (_labelRadius * sin(interpolatedMidAngle)))];
             [CATransaction setDisableActions:NO];
         }
     }];
+}
+
+- (void)updateTimerFired:(NSTimer *)timer
+{
+    [self updateLayers];
 }
 
 - (void)animationDidStart:(CAAnimation *)anim
@@ -473,6 +479,8 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     [_animations removeObject:anim];
     
     if ([_animations count] == 0) {
+        [self updateLayers];
+        
         [_animationTimer invalidate];
         _animationTimer = nil;
     }
@@ -640,7 +648,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         [textLayer setShadowOpacity:1.0f];
         [textLayer setShadowRadius:2.0f];
     }
-    CGSize size = [@"0" sizeWithFont:self.labelFont];
+    CGSize size = [@"0" sizeWithAttributes:@{NSFontAttributeName:self.labelFont}];
     [CATransaction setDisableActions:YES];
     [textLayer setFrame:CGRectMake(0, 0, size.width, size.height)];
     [textLayer setPosition:CGPointMake(_pieCenter.x + (_labelRadius * cos(0)), _pieCenter.y + (_labelRadius * sin(0)))];
@@ -660,7 +668,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     else
         label = (pieLayer.text)?pieLayer.text:[NSString stringWithFormat:@"%0.0f", value];
     
-    CGSize size = [label sizeWithFont:self.labelFont];
+    CGSize size = [label sizeWithAttributes:@{NSFontAttributeName:self.labelFont}];
     
     [CATransaction setDisableActions:YES];
     if(M_PI*2*_labelRadius*pieLayer.percentage < MAX(size.width,size.height) || value <= 0)
