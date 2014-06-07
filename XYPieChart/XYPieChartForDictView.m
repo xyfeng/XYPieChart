@@ -84,22 +84,27 @@
     
     NSString *key = [m_dataSourceOrderedKeys objectAtIndex:index];
     
-    NSLog( @"pieChart text for slice %d:%@", index, key );
-    
     return key;
 }
 
 
 
 
-- (UIView *)makeLabelKeyViewAtPoint:(CGPoint)point boxCornerRadius:(float)cornerRadius
+- (UIView *)makeLabelKeyViewAtPoint:(CGPoint)point boxCornerRadius:(float)cornerRadius showValue:(bool)showValue
 {
     CGSize maxLabelSize  = CGSizeMake(0, 0);
     
     // Find the largest label size
-    for( NSString *key in m_dataSourceOrderedKeys )
+    for( int index = 0;  index < m_dataSourceOrderedKeys.count;  index += 1 )
     {
-        CGSize textSize = [key sizeWithAttributes:@{NSFontAttributeName:self.labelFont}];
+        NSString *key   = [m_dataSourceOrderedKeys objectAtIndex:index];
+        NSString *text  = key;
+        CGFloat   value = [self pieChart:self valueForSliceAtIndex:index];
+        
+        if( showValue && value > 0)
+            text = [NSString stringWithFormat:@"%@ (%0.0f)", key, value];
+        
+        CGSize textSize = [text sizeWithAttributes:@{NSFontAttributeName:self.labelFont}];
         
         if( maxLabelSize.width < textSize.width )
             maxLabelSize.width = textSize.width;
@@ -122,8 +127,13 @@
         
         UILabel  *label = [[UILabel alloc] initWithFrame:frame];
         NSString *key   = [m_dataSourceOrderedKeys objectAtIndex:index];
+        NSString *text  = key;
+        CGFloat   value = [self pieChart:self valueForSliceAtIndex:index];
         
-        label.text = key;
+        if( showValue && value > 0)
+            text = [NSString stringWithFormat:@"%@ (%0.0f)", key, value];
+        
+        label.text = text;
         label.font = self.labelFont;
         label.textColor = self.labelColor;
         

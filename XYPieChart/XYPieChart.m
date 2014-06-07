@@ -674,7 +674,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     
     
     if(_showPercentage)
-        [label appendFormat:@"%0.0f", pieLayer.percentage*100];
+        [label appendFormat:@"%0.0f%%", pieLayer.percentage*100];
     else
         [label appendFormat:@"%0.0f", value];
     

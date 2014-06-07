@@ -22,6 +22,6 @@
 
 - (void)setKeyOrder:(NSArray *)keyOrder;
 
-- (UIView *)makeLabelKeyViewAtPoint:(CGPoint)point boxCornerRadius:(float)cornerRadius;
+- (UIView *)makeLabelKeyViewAtPoint:(CGPoint)point boxCornerRadius:(float)cornerRadius showValue:(bool)showValue;
 
 @end
