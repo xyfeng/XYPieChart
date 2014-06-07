@@ -95,7 +95,7 @@
 
 
 
-- (UIView *)makeLabelKeyViewAtPoint:(CGPoint)point
+- (UIView *)makeLabelKeyViewAtPoint:(CGPoint)point boxCornerRadius:(float)cornerRadius
 {
     CGSize maxLabelSize  = CGSizeMake(0, 0);
     
@@ -111,14 +111,19 @@
             maxLabelSize.height = textSize.height;
     }
 
-    float    xMargin  = 8;
-    float    yMargin  = 8;
-    CGSize   viewSize = CGSizeMake(m_dataSourceOrderedKeys.count * (maxLabelSize.width + xMargin), m_dataSourceOrderedKeys.count * (maxLabelSize.height + yMargin) );
+    CGSize boxSize = CGSizeMake( maxLabelSize.height, maxLabelSize.height );
+    float  xMargin  = 2;
+    float  yMargin  = 2;
+    float  boxTextGap = xMargin * 2;
+    
+    CGSize   viewSize = CGSizeMake((m_dataSourceOrderedKeys.count * (maxLabelSize.width + xMargin)) + (boxSize.width + boxTextGap), m_dataSourceOrderedKeys.count * (maxLabelSize.height + yMargin) );
     UIView  *view     = [[UIView alloc] initWithFrame:CGRectMake(point.x, point.y, viewSize.width, viewSize.height)];
-
+    
     for( int index = 0;  index < m_dataSourceOrderedKeys.count;  index += 1 )
     {
-        UILabel  *label = [[UILabel alloc] initWithFrame:CGRectMake(0, index * (maxLabelSize.height + yMargin), maxLabelSize.width, maxLabelSize.height)];
+        CGRect    frame = CGRectMake((boxSize.width + boxTextGap), index * (maxLabelSize.height + yMargin), maxLabelSize.width, maxLabelSize.height);
+        
+        UILabel  *label = [[UILabel alloc] initWithFrame:frame];
         NSString *key   = [m_dataSourceOrderedKeys objectAtIndex:index];
         
         label.text = key;
@@ -127,6 +132,22 @@
         
         [view addSubview:label];
     }
+    
+    for( int index = 0;  index < m_dataSourceOrderedKeys.count;  index += 1 )
+    {
+        CGRect  frame = CGRectMake(0, index * (maxLabelSize.height + yMargin), boxSize.width, boxSize.height);
+        UIView *boxView = [[UIView alloc] initWithFrame:frame];
+        boxView.backgroundColor = [self colorAtIndex:index];
+        
+        if( cornerRadius > 0 )
+        {
+            boxView.layer.cornerRadius = cornerRadius;
+            boxView.clipsToBounds = YES;
+        }
+        
+        [view addSubview:boxView];
+    }
+
     
     return view;
 }

@@ -21,6 +21,6 @@
 - (void)setDataSourceDict:(NSDictionary *)dataSourceDict keyOrder:(NSArray *)keyOrder;
 - (void)setDataSourceDict:(NSDictionary *)dataSourceDict;
 
-- (UIView *)makeLabelKeyViewAtPoint:(CGPoint)point;
+- (UIView *)makeLabelKeyViewAtPoint:(CGPoint)point boxCornerRadius:(float)cornerRadius;
 
 @end

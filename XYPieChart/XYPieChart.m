@@ -369,16 +369,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             
             layer.value = values[index];
             layer.percentage = (sum)?layer.value/sum:0;
-            UIColor *color = nil;
-            if([_dataSource respondsToSelector:@selector(pieChart:colorForSliceAtIndex:)])
-            {
-                color = [_dataSource pieChart:self colorForSliceAtIndex:index];
-            }
-            
-            if(!color)
-            {
-                color = [UIColor colorWithHue:((index/8)%20)/20.0+0.02 saturation:(index%8+3)/10.0 brightness:91/100.0 alpha:1];
-            }
+            UIColor *color = [self colorAtIndex:index];
             
             [layer setFillColor:color.CGColor];
             if([_dataSource respondsToSelector:@selector(pieChart:textForSliceAtIndex:)])
@@ -424,6 +415,26 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         [CATransaction commit];
     }
 }
+
+
+- (UIColor *)colorAtIndex:(int)index
+{
+    UIColor *color = nil;
+    
+    if([_dataSource respondsToSelector:@selector(pieChart:colorForSliceAtIndex:)])
+    {
+        color = [_dataSource pieChart:self colorForSliceAtIndex:index];
+    }
+    
+    if(!color)
+    {
+        color = [UIColor colorWithHue:((index/8)%20)/20.0+0.02 saturation:(index%8+3)/10.0 brightness:91/100.0 alpha:1];
+    }
+
+    return color;
+}
+
+
 
 #pragma mark - Animation Delegate + Run Loop Timer
 
