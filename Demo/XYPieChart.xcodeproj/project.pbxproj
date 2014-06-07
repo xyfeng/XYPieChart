@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2424BF2C1607437C0000B539 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424BF2B1607437C0000B539 /* XYPieChart.m */; };
+		36F354D41942C72B00F4FD5B /* XYPieChartForDictView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F354D31942C72B00F4FD5B /* XYPieChartForDictView.m */; };
 		8768825C1501D2A60097BE69 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8768825B1501D2A60097BE69 /* icon.png */; };
 		87FEAA1C14F84E3000ED38A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FEAA1B14F84E3000ED38A2 /* UIKit.framework */; };
 		87FEAA1E14F84E3000ED38A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FEAA1D14F84E3000ED38A2 /* Foundation.framework */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		2424BF2A1607437C0000B539 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYPieChart.h; path = ../../XYPieChart/XYPieChart.h; sourceTree = "<group>"; };
 		2424BF2B1607437C0000B539 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYPieChart.m; path = ../../XYPieChart/XYPieChart.m; sourceTree = "<group>"; };
+		36F354D21942C72B00F4FD5B /* XYPieChartForDictView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYPieChartForDictView.h; path = ../../XYPieChart/XYPieChartForDictView.h; sourceTree = "<group>"; };
+		36F354D31942C72B00F4FD5B /* XYPieChartForDictView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYPieChartForDictView.m; path = ../../XYPieChart/XYPieChartForDictView.m; sourceTree = "<group>"; };
 		8768825B1501D2A60097BE69 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		87FEAA1714F84E3000ED38A2 /* XYPieChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XYPieChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FEAA1B14F84E3000ED38A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -89,6 +92,8 @@
 			children = (
 				2424BF2A1607437C0000B539 /* XYPieChart.h */,
 				2424BF2B1607437C0000B539 /* XYPieChart.m */,
+				36F354D21942C72B00F4FD5B /* XYPieChartForDictView.h */,
+				36F354D31942C72B00F4FD5B /* XYPieChartForDictView.m */,
 				87FEAA2D14F84E3100ED38A2 /* ViewController.h */,
 				87FEAA2E14F84E3100ED38A2 /* ViewController.m */,
 				87FEAA3014F84E3100ED38A2 /* ViewController.xib */,
@@ -175,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87FEAA2814F84E3100ED38A2 /* main.m in Sources */,
+				36F354D41942C72B00F4FD5B /* XYPieChartForDictView.m in Sources */,
 				87FEAA2C14F84E3100ED38A2 /* AppDelegate.m in Sources */,
 				87FEAA2F14F84E3100ED38A2 /* ViewController.m in Sources */,
 				2424BF2C1607437C0000B539 /* XYPieChart.m in Sources */,
