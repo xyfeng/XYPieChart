@@ -14,30 +14,27 @@
 
 
 
-
-
-
-- (void)setDataSourceDict:(NSDictionary *)dataSourceDict keyOrder:(NSArray *)keyOrder
+- (void)setDataSourceDict:(NSDictionary *)dataSourceDict
 {
-    assert( [[NSSet setWithArray:dataSourceDict.allKeys] isEqualToSet:[NSSet setWithArray:keyOrder]] );
-    
     if( self.dataSource == nil )
         self.dataSource = self;
     
     // When using a data source dictionary we need to be the dataSource delegate.
     assert( self.dataSource == self );
-
-    m_dataSourceOrderedKeys = keyOrder;
-    m_dataSourceDict        = [dataSourceDict copy];
-    [self reloadData];
+    
+    m_dataSourceDict = [dataSourceDict copy];
+    [self setKeyOrder:[dataSourceDict keysSortedByValueUsingSelector:@selector(compare:)]];
 }
 
 
 
 
-- (void)setDataSourceDict:(NSDictionary *)dataSourceDict
+- (void)setKeyOrder:(NSArray *)keyOrder
 {
-    [self setDataSourceDict:dataSourceDict keyOrder:[dataSourceDict keysSortedByValueUsingSelector:@selector(compare:)]];
+    assert( [[NSSet setWithArray:m_dataSourceDict.allKeys] isEqualToSet:[NSSet setWithArray:keyOrder]] );
+
+    m_dataSourceOrderedKeys = keyOrder;
+    [self reloadData];
 }
 
 

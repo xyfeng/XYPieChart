@@ -18,8 +18,9 @@
 @property (nonatomic) NSDictionary *colorDict;
 @property (nonatomic) bool showDictLabel;
 
-- (void)setDataSourceDict:(NSDictionary *)dataSourceDict keyOrder:(NSArray *)keyOrder;
 - (void)setDataSourceDict:(NSDictionary *)dataSourceDict;
+
+- (void)setKeyOrder:(NSArray *)keyOrder;
 
 - (UIView *)makeLabelKeyViewAtPoint:(CGPoint)point boxCornerRadius:(float)cornerRadius;
 
