@@ -654,11 +654,18 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     CATextLayer *textLayer = [[pieLayer sublayers] objectAtIndex:0];
     [textLayer setHidden:!_showLabel];
     if(!_showLabel) return;
-    NSString *label;
-    if(_showPercentage)
-        label = [NSString stringWithFormat:@"%0.0f", pieLayer.percentage*100];
+    
+    NSMutableString *label;
+    if( pieLayer.text.length == 0 )
+        label = [NSMutableString stringWithString:@""];
     else
-        label = (pieLayer.text)?pieLayer.text:[NSString stringWithFormat:@"%0.0f", value];
+        label = [NSMutableString stringWithFormat:@"%@ - ", pieLayer.text];
+    
+    
+    if(_showPercentage)
+        [label appendFormat:@"%0.0f", pieLayer.percentage*100];
+    else
+        [label appendFormat:@"%0.0f", value];
     
     CGSize size = [label sizeWithFont:self.labelFont];
     
