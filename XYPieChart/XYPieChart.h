@@ -44,6 +44,7 @@
 - (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index;
 - (void)pieChart:(XYPieChart *)pieChart willDeselectSliceAtIndex:(NSUInteger)index;
 - (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index;
+- (BOOL)pieChart:(XYPieChart *)pieChart ShouldSelectSliceAtIndex:(NSUInteger)index;
 @end
 
 @interface XYPieChart : UIView

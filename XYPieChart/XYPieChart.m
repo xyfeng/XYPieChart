@@ -543,6 +543,11 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)notifyDelegateOfSelectionChangeFrom:(NSUInteger)previousSelection to:(NSUInteger)newSelection
 {
+    if ([_delegate respondsToSelector:@selector(pieChart:ShouldSelectSliceAtIndex:)]) {
+        if (![_delegate pieChart:self ShouldSelectSliceAtIndex:newSelection]) {
+            return;
+        };
+    }
     if (previousSelection != newSelection){
         if(previousSelection != -1){
             NSUInteger tempPre = previousSelection;
