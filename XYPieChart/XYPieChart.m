@@ -198,6 +198,8 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         
         _showLabel = YES;
         _showPercentage = YES;
+        
+        self.allPercentageValues = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -659,6 +661,8 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         label = [NSString stringWithFormat:@"%0.0f", pieLayer.percentage*100];
     else
         label = (pieLayer.text)?pieLayer.text:[NSString stringWithFormat:@"%0.0f", value];
+    
+    [self.allPercentageValues addObject:label];
     
     CGSize size = [label sizeWithFont:self.labelFont];
     
