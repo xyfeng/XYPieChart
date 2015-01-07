@@ -116,6 +116,7 @@ static NSUInteger kDefaultSliceZOrder = 100;
 @synthesize labelColor = _labelColor;
 @synthesize labelShadowColor = _labelShadowColor;
 @synthesize labelRadius = _labelRadius;
+@synthesize sliceStrokeColor = _sliceStrokeColor;
 @synthesize selectedSliceStroke = _selectedSliceStroke;
 @synthesize selectedSliceOffsetRadius = _selectedSliceOffsetRadius;
 @synthesize showPercentage = _showPercentage;
@@ -616,7 +617,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 {
     SliceLayer *pieLayer = [SliceLayer layer];
     [pieLayer setZPosition:0];
-    [pieLayer setStrokeColor:NULL];
+    [pieLayer setStrokeColor:self.sliceStrokeColor.CGColor];
     CATextLayer *textLayer = [CATextLayer layer];
     textLayer.contentsScale = [[UIScreen mainScreen] scale];
     CGFontRef font = nil;
