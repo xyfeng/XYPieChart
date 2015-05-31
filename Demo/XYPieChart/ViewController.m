@@ -21,12 +21,6 @@
 @synthesize slices = _slices;
 @synthesize sliceColors = _sliceColors;
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -80,11 +74,6 @@
     [self setNumOfSlices:nil];
     [self setDownArrow:nil];
     [super viewDidUnload];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
