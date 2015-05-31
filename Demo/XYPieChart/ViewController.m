@@ -119,7 +119,7 @@
     if(btn.tag == 101 && num < 10)
         num = num + ((num == -1)?2:1);
     
-    self.numOfSlices.text = [NSString stringWithFormat:@"%d",num];
+    self.numOfSlices.text = [NSString stringWithFormat:@"%ld",(long)num];
 }
 
 - (IBAction)clearSlices {
@@ -130,9 +130,9 @@
 
 - (IBAction)addSliceBtnClicked:(id)sender 
 {
-    NSInteger num = [self.numOfSlices.text intValue];
+    int num = [self.numOfSlices.text intValue];
     if (num > 0) {
-        for (int n=0; n < abs(num); n++) 
+        for (int n=0; n < abs(num); n++)
         {
             NSNumber *one = [NSNumber numberWithInt:rand()%60+20];
             NSInteger index = 0;
@@ -153,7 +153,7 @@
     else if (num < 0)
     {
         if(self.slices.count <= 0) return;
-        for (int n=0; n < abs(num); n++) 
+        for (int n=0; n < abs(num); n++)
         {
             NSInteger index = 0;
             if(self.slices.count > 0)
@@ -210,19 +210,19 @@
 #pragma mark - XYPieChart Delegate
 - (void)pieChart:(XYPieChart *)pieChart willSelectSliceAtIndex:(NSUInteger)index
 {
-    NSLog(@"will select slice at index %d",index);
+    NSLog(@"will select slice at index %lu",(unsigned long)index);
 }
 - (void)pieChart:(XYPieChart *)pieChart willDeselectSliceAtIndex:(NSUInteger)index
 {
-    NSLog(@"will deselect slice at index %d",index);
+    NSLog(@"will deselect slice at index %lu",(unsigned long)index);
 }
 - (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index
 {
-    NSLog(@"did deselect slice at index %d",index);
+    NSLog(@"did deselect slice at index %lu",(unsigned long)index);
 }
 - (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index
 {
-    NSLog(@"did select slice at index %d",index);
+    NSLog(@"did select slice at index %lu",(unsigned long)index);
     self.selectedSliceLabel.text = [NSString stringWithFormat:@"$%@",[self.slices objectAtIndex:index]];
 }
 
