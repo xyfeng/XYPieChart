@@ -57,6 +57,7 @@
 @property(nonatomic, strong) UIFont  *labelFont;
 @property(nonatomic, strong) UIColor *labelColor;
 @property(nonatomic, strong) UIColor *labelShadowColor;
+@property(nonatomic, strong) UIColor *sliceStrokeColor;
 @property(nonatomic, assign) CGFloat labelRadius;
 @property(nonatomic, assign) CGFloat selectedSliceStroke;
 @property(nonatomic, assign) CGFloat selectedSliceOffsetRadius;
