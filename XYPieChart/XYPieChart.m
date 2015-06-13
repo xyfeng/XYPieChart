@@ -448,7 +448,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
             CALayer *labelLayer = [[obj sublayers] objectAtIndex:0];
             CGFloat interpolatedMidAngle = (interpolatedEndAngle + interpolatedStartAngle) / 2;        
             [CATransaction setDisableActions:YES];
-            [labelLayer setPosition:CGPointMake(_pieCenter.x + (_labelRadius * cos(interpolatedMidAngle)), _pieCenter.y + (_labelRadius * sin(interpolatedMidAngle)))];
+            [labelLayer setPosition:CGPointMake((NSInteger)(_pieCenter.x + (_labelRadius * cos(interpolatedMidAngle))), (NSInteger)(_pieCenter.y + (_labelRadius * sin(interpolatedMidAngle))))];
             [CATransaction setDisableActions:NO];
         }
     }];
@@ -643,7 +643,7 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
     CGSize size = [@"0" sizeWithFont:self.labelFont];
     [CATransaction setDisableActions:YES];
     [textLayer setFrame:CGRectMake(0, 0, size.width, size.height)];
-    [textLayer setPosition:CGPointMake(_pieCenter.x + (_labelRadius * cos(0)), _pieCenter.y + (_labelRadius * sin(0)))];
+    [textLayer setPosition:CGPointMake((NSInteger)(_pieCenter.x + (_labelRadius * cos(0))), (NSInteger)(_pieCenter.y + (_labelRadius * sin(0))))];
     [CATransaction setDisableActions:NO];
     [pieLayer addSublayer:textLayer];
     return pieLayer;
